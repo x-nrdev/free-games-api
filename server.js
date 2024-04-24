@@ -10,8 +10,7 @@ const API_HOST = process.env.API_HOST
 const API_KEY = process.env.API_KEY
 
 app.get('/api', async (req, res) => {
-    const tag = req.query.tag
-    debug(tag)
+    const tag = req.query.tag || 'battle-royale'
     const options = {
         method: 'GET',
         headers: {

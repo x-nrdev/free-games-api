@@ -3,7 +3,7 @@ const pagElement = document.querySelector('.pagination')
 
 // Data Fetch
 const fetchData = async (tag = 'battle-royale') => {
-    const url = `http://localhost:5000/api?tag=${tag}`
+    const url = `/api?tag=${tag}`
     const response = await fetch(url)
     const data = await response.json()
     console.log(data)
