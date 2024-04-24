@@ -1,14 +1,13 @@
 const ulElem = document.querySelector('.thumbnails')
 const pagElement = document.querySelector('.pagination')
-console.log('Hi 👋')
+
 // Data Fetch
 const fetchData = async (tag = 'battle-royale') => {
-    console.log('Hi inside fetch data 👋')
-    const url = `http://localhost:5000/?tag=${tag}`
+    const url = `http://localhost:5000/api?tag=${tag}`
     const response = await fetch(url)
-    console.log(response)
     const data = await response.json()
     console.log(data)
+
     const gamesPagination = 6
     const delayMultiplier = 100
 
