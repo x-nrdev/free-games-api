@@ -2,10 +2,11 @@
   "name": "free-games-api",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node --env-file=.env server.js",
-    "dev": "nodemon --env-file=.env server.js"
+    "start": "node --env-file=.env api/index.js",
+    "build": "npm i && node api/index.js",
+    "dev": "nodemon --env-file=.env api/index.js"
   },
   "keywords": [],
   "author": "",
