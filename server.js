@@ -4,7 +4,7 @@ const debug = require('debug')('app')
 const app = express()
 
 // Env environments
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT
 const API_URL = process.env.API_URL
 const API_HOST = process.env.API_HOST
 const API_KEY = process.env.API_KEY
