@@ -6,7 +6,6 @@ const fetchData = async (tag = 'battle-royale') => {
     const url = `/api?tag=${tag}`
     const response = await fetch(url)
     const data = await response.json()
-    console.log(data)
 
     const gamesPagination = 6
     const delayMultiplier = 100
