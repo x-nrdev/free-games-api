@@ -1,21 +1,10 @@
-const express = require('express')
-const debug = require('debug')('app')
-const cors = require('cors')
-
-const app = express()
-
-// Env environments
-const PORT = process.env.PORT || 3000
-const API_URL = process.env.API_URL
-const API_HOST = process.env.API_HOST
-const API_KEY = process.env.API_KEY
-
-app.use(cors({
-    origin: 'https://free-games-api.vercel.app/',
-    optionsSuccessStatus: 200
-}))
-
-app.get('/api', async (req, res) => {
+module.exports = async function GET(req, res){
+    // Env environments
+    const PORT = process.env.PORT || 3000
+    const API_URL = process.env.API_URL
+    const API_HOST = process.env.API_HOST
+    const API_KEY = process.env.API_KEY
+    
     const tag = req.query.tag || 'battle-royale'
     const options = {
         method: 'GET',
@@ -28,10 +17,4 @@ app.get('/api', async (req, res) => {
     const data = await response.json()
 
     res.json(data)
-})
-
-app.use(express.static('public'))
-
-app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`)
-})
+}
