@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node --env-file=.env index.js",
-    "build": "npm i && node index.js",
-    "dev": "nodemon --env-file=.env index.js"
+    "start": "node --env-file=.env api/index.js",
+    "build": "npm i && node api/index.js",
+    "dev": "nodemon --env-file=.env api/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.19.2"
   },
   "devDependencies": {

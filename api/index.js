@@ -1,5 +1,4 @@
 const express = require('express')
-const debug = require('debug')('app')
 const cors = require('cors')
 
 const app = express()
@@ -35,3 +34,5 @@ app.use(express.static('public'))
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
 })
+
+module.exports = app;
