@@ -7,9 +7,6 @@
     "start": "node --env-file=.env api/index.js",
     "build": "npm i && node api/index.js",
     "dev": "nodemon --env-file=.env api/index.js"
-    "start": "node --env-file=.env api/index.js",
-    "build": "npm i && node api/index.js",
-    "dev": "nodemon --env-file=.env api/index.js"
   },
   "keywords": [],
   "author": "",
