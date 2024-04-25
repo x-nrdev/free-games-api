@@ -1,5 +1,6 @@
 const express = require('express')
 const debug = require('debug')('app')
+const cors = require('cors')
 
 const app = express()
 
@@ -8,6 +9,11 @@ const PORT = process.env.PORT || 3000
 const API_URL = process.env.API_URL
 const API_HOST = process.env.API_HOST
 const API_KEY = process.env.API_KEY
+
+app.use(cors({
+    origin: 'https://free-games-api.vercel.app/',
+    optionsSuccessStatus: 200
+}))
 
 app.get('/api', async (req, res) => {
     const tag = req.query.tag || 'battle-royale'
@@ -20,7 +26,7 @@ app.get('/api', async (req, res) => {
     };
     const response = await fetch(`${API_URL}?tag=${tag}`, options)
     const data = await response.json()
-    
+
     res.json(data)
 })
 
