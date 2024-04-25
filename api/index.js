@@ -1,0 +1,20 @@
+module.exports = async function GET(req, res){
+    // Env environments
+    const PORT = process.env.PORT || 3000
+    const API_URL = process.env.API_URL
+    const API_HOST = process.env.API_HOST
+    const API_KEY = process.env.API_KEY
+    
+    const tag = req.query.tag || 'battle-royale'
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': API_KEY,
+            'X-RapidAPI-Host': API_HOST
+        }
+    };
+    const response = await fetch(`${API_URL}?tag=${tag}`, options)
+    const data = await response.json()
+
+    res.json(data)
+}
