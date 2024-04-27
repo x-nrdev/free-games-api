@@ -1,17 +1,23 @@
 :root {
     --primaryColor: lightcoral;
+
+    --menuSize: 60px;
+    --menuTiming: .6s
 }
 
 /* General */
 html {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     box-sizing: border-box;
 }
 
 body {
-    color: #CCC;
-    background-color: #222;
+    max-width: 1000px;
     margin: 0;
+    margin-inline: auto;
+    color: #ccc;
+    background-color: #222;
 }
 
 h1 {
@@ -32,19 +38,56 @@ img {
 }
 
 button {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    border-radius: .2rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    border-radius: 0.2rem;
+}
+
+.header {
+    position: relative;
+    padding-block-end: 4rem;
 }
 
 /* Hamburguer */
 .menu {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
     display: flex;
     padding: 0;
-    margin-inline-start: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: var(--menuSize);
+    z-index: 10;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
+
+.menu.opened~.nav {
+    display: flex;
+}
+
+.menu.opened~.nav-background {
+    scale: 100;
+}
+
+.menu.opened~.nav button {
+    animation: opacity calc(var(--menuTiming) + .2s) ease-in-out forwards;
+}
+
+.nav-background {
+    position: fixed;
+    z-index: 2;
+    width: var(--menuSize);
+    height: var(--menuSize);
+    top: calc(0px - var(--menuSize));
+    right: calc(0px - var(--menuSize));
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.561);
+    backdrop-filter: blur(0.1px);
+    transition: var(--menuTiming) ease-in-out scale;
+}
+
+
 
 .line {
     fill: none;
@@ -90,19 +133,27 @@ button {
 /* Nav */
 .nav {
     display: none;
+    flex-direction: column;
     justify-content: center;
-    padding-block: 1rem;
+    align-items: center;
+    min-width: 100dvw;
+    min-height: 100dvh;
+    position: fixed;
+    z-index: 10;
+    border-radius: 100%;
     gap: 1rem;
 }
 
 .nav button {
+    width: 18rem;
+    max-width: 80%;
     padding: 1rem 1.4rem;
     border: 1px solid var(--primaryColor);
-    color: #CCC;
+    color: #ccc;
     background-color: transparent;
     cursor: pointer;
     font-weight: bold;
-    transition: .1s ease-in-out;
+    transition: 0.2s ease-in-out;
     transition-property: color, background-color, border;
 }
 
@@ -118,7 +169,8 @@ button {
 .pagination {
     padding-left: 0;
     list-style: none;
-    animation: opacity 2s 1s forwards;
+    opacity: 0;
+    animation: opacity 2s .2s forwards;
 }
 
 .thumbnails {
@@ -126,30 +178,31 @@ button {
     justify-content: center;
     flex-wrap: wrap;
     gap: 2rem;
-    min-height: 2;
 }
 
 .thumbnail {
     display: flex;
+    min-height: 22rem;
     opacity: 0;
+    animation: opacity 1s .2s forwards;
 }
 
 .card {
     display: inline-block;
     max-width: 16rem;
     padding-inline: 1rem;
-    border-radius: .4rem;
+    border-radius: 0.4rem;
     background-color: #333;
     -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
-    transition: .2s ease-in-out background-color;
+    transition: 0.2s ease-in-out background-color;
 }
 
 .card img {
     object-fit: cover;
-    border-radius: .2rem;
-    transition: .2s ease-in-out transform;
+    border-radius: 0.2rem;
+    transition: 0.2s ease-in-out transform;
 }
 
 .card a {
@@ -161,29 +214,31 @@ button {
     flex-grow: 1;
 }
 
-.card img:hover {
-    transform: scale(1.2);
-}
-
-.card:has(img:hover) {
-    background-color: #222;
-}
-
 .pagination {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
-    opacity: 0;
+}
+
+.fn-pagination.active {
+    cursor: pointer;
+    background-color: var(--primaryColor);
 }
 
 .pagination button {
-    padding: .4rem .6rem;
-    border: 1px solid var(--primaryColor)
+    color: white;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--primaryColor);
+    background-color: transparent;
 }
 
 /* Keyframes */
 @keyframes opacity {
+    from {
+        opacity: 0;
+    }
+
     to {
         opacity: 1;
     }
@@ -191,7 +246,32 @@ button {
 
 /* Media Queries */
 @media screen and (min-width: 768px) {
+
+    .header {
+        padding: 0;
+    }
+
+    .menu {
+        display: none;
+    }
+
     .nav {
+        all: unset;
         display: flex;
+        gap: 4rem;
+        padding-block: 2rem;
+    }
+
+    .pagination button:hover {
+        cursor: pointer;
+        background-color: var(--primaryColor);
+    }
+
+    .card img:hover {
+        transform: scale(1.2);
+    }
+
+    .card:has(img:hover) {
+        background-color: #222;
     }
 }
