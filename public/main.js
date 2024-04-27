@@ -70,11 +70,10 @@ const fetchData = async (tag = 'battle-royale') => {
             const page = Number.parseInt(thisBtn.innerText)
             updateActiveBtn(activePagination, thisBtn)
             setData(page)
+            globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         })
     })
 }
-
-
 
 // Nav buttons listeners
 const buttons = document.querySelectorAll('.btn')
@@ -82,6 +81,10 @@ const buttons = document.querySelectorAll('.btn')
 buttons.forEach(button => {
     button.addEventListener('click', e => {
         const thisBtn = e.target
+        const navMenu = document.querySelector('.menu')
+        
+        navMenu.classList.remove('opened')
+        
         if (thisBtn.classList.contains('active')) return
         const tag = thisBtn.dataset.tag
         const activeNavButton = document.querySelector('.btn.active')
