@@ -32,5 +32,3 @@ app.get('/api', async (req, res) => {
 app.use(express.static('public'))
 
 module.exports = app;
-
-app.listen(PORT, () => {console.log(`Listening on port ${PORT}`)})
