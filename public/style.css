@@ -223,6 +223,7 @@ button {
 
 .fn-pagination.active {
     cursor: pointer;
+    color: black;
     background-color: var(--primaryColor);
 }
 
