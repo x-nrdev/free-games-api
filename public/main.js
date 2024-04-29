@@ -1,3 +1,6 @@
+// Variables
+const navMenu = document.querySelector('button.menu')
+const buttons = document.querySelectorAll('.btn')
 const ulElem = document.querySelector('.thumbnails')
 const pagElement = document.querySelector('.pagination')
 
@@ -10,7 +13,7 @@ const fetchData = async (tag = 'battle-royale') => {
     const gamesPagination = 12
     const delayMultiplier = 100
 
-    // Set Data
+    // Insert fetched data to the DOM
     const setData = (pag = 1) => {
         const pagCalc = pag * gamesPagination - gamesPagination
         const games = data.slice(pagCalc, pagCalc + gamesPagination)
@@ -40,76 +43,84 @@ const fetchData = async (tag = 'battle-royale') => {
         ulElem.innerHTML = ctx
     }
 
-    setData()
-
-    // Pagination
-    const pagButtonsCounter = Math.ceil(data.length / gamesPagination)
-    for (let i = 1; i <= pagButtonsCounter; i++) {
-        if (i === 1) {
-            const liElem = `
+    // Insert pagination buttons to the DOM
+    const addPaginationButtons = () => {
+        const pagButtonsCounter = Math.ceil(data.length / gamesPagination)
+        for (let i = 1; i <= pagButtonsCounter; i++) {
+            if (i === 1) {
+                const liElem = `
                 <li>
                     <button class='fn-pagination active'>${i}</button>
                 </li>
             `
-            pagElement.innerHTML += liElem
-        } else {
-            const liElem = `
+                pagElement.innerHTML += liElem
+            } else {
+                const liElem = `
                 <li>
                     <button class='fn-pagination'>${i}</button>
                 </li>
             `
-            pagElement.innerHTML += liElem
+                pagElement.innerHTML += liElem
+            }
         }
+
+        // Add funcionality to pagination buttons
+        const pagButtons = document.querySelectorAll('.fn-pagination')
+        pagButtons.forEach(button => {
+            button.addEventListener('click', e => {
+                if (button.classList.contains('active')) return
+                const activePagination = document.querySelector('.fn-pagination.active')
+                const thisBtn = e.target
+                const page = Number.parseInt(thisBtn.innerText)
+                updateActiveButton(activePagination, thisBtn)
+                setData(page)
+                globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            })
+        })
     }
-    const pagButtons = document.querySelectorAll('.fn-pagination')
-    pagButtons.forEach(button => {
+
+    setData()
+    addPaginationButtons()
+}
+
+// Update games category
+const updateGamesCategory = () => {
+    buttons.forEach(button => {
         button.addEventListener('click', e => {
-            if (button.classList.contains('active')) return
-            const activePagination = document.querySelector('.fn-pagination.active')
             const thisBtn = e.target
-            const page = Number.parseInt(thisBtn.innerText)
-            updateActiveBtn(activePagination, thisBtn)
-            setData(page)
+            const menu = document.querySelector('.menu')
+            const bodyClass = document.body.classList
+
+            menu.classList.remove('opened')
+            bodyClass.remove('no-scroll')
+
+            if (thisBtn.classList.contains('active')) return
+            const tag = thisBtn.dataset.tag
+            const activeNavButton = document.querySelector('.btn.active')
+
+            updateActiveButton(activeNavButton, thisBtn)
+
+            pagElement.innerHTML = ''
+            fetchData(tag)
             globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         })
     })
 }
 
-// Nav buttons listeners
-const buttons = document.querySelectorAll('.btn')
-
-buttons.forEach(button => {
-    button.addEventListener('click', e => {
-        const thisBtn = e.target
-        const menu = document.querySelector('.menu')
-        const bodyClass = document.body.classList
-
-        menu.classList.remove('opened')
-        bodyClass.remove('no-scroll')
-
-        if (thisBtn.classList.contains('active')) return
-        const tag = thisBtn.dataset.tag
-        const activeNavButton = document.querySelector('.btn.active')
-
-        updateActiveBtn(activeNavButton, thisBtn)
-
-        pagElement.innerHTML = ''
-        fetchData(tag)
-        globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    })
-})
-buttons[0].classList.add('active')
-
-const updateActiveBtn = (activeButton, inactiveButton) => {
+// Update category buttons
+const updateActiveButton = (activeButton, inactiveButton) => {
     activeButton.classList.remove('active')
     inactiveButton.classList.add('active')
 }
 
-const navMenu = document.querySelector('button.menu')
-
-navMenu.addEventListener('click', () => {
-    const bodyClass = document.body.classList
-    navMenu.classList.contains('opened') ? bodyClass.add('no-scroll') : bodyClass.remove('no-scroll')
-})
+// Remove scroll when menu is opened
+const updateScrollStatus = () => {
+    navMenu.addEventListener('click', () => {
+        const bodyClass = document.body.classList
+        navMenu.classList.contains('opened') ? bodyClass.add('no-scroll') : bodyClass.remove('no-scroll')
+    })
+}
 
 fetchData()
+updateGamesCategory()
+updateScrollStatus()
