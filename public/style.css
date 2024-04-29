@@ -274,6 +274,10 @@ button {
         background-color: unset;
     }
 
+    .nav-background {
+        display: none;
+    }
+    
     .menu {
         display: none;
     }
