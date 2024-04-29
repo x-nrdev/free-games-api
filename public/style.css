@@ -4,6 +4,7 @@
     --menuSize: 60px;
     --menuTiming: .6s;
     --backdropBlur: 4px;
+    --maxWidthCap: 940px;
 }
 
 /* General */
@@ -29,7 +30,7 @@ h3 {
 }
 
 main {
-    margin-top: 6rem;
+    margin-block-start: 6rem;
     margin-inline: auto;
 }
 
@@ -49,17 +50,19 @@ button {
 }
 
 .wrapper {
+    position: relative;
     margin-inline: auto;
-    max-width: 1000px;
+    max-width: var(--maxWidthCap);
 }
 
 /* Nav */
 .header {
-    position: fixed;
-    top: 0;
-    z-index: 10;
     width: 100%;
     height: 4rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
     background-color: rgba(0, 0, 0, 0.561);
     backdrop-filter: blur(var(--backdropBlur));
 }
@@ -71,7 +74,7 @@ button {
     padding: 0;
     position: absolute;
     top: 0;
-    right: 4px;
+    right: 0;
     z-index: 10;
     border: none;
     background-color: transparent;
@@ -160,7 +163,7 @@ button {
 }
 
 .nav button {
-    width: 18rem;
+    min-width: 18rem;
     max-width: 80%;
     padding: 1rem 1.4rem;
     border: 1px solid var(--primaryColor);
@@ -264,20 +267,26 @@ button {
 /* Media Queries */
 @media screen and (min-width: 768px) {
 
+    body.no-scroll {
+        overflow: scroll;
+    }
+
+    main {
+        margin-block-start: 8rem;
+    }
+
     .wrapper {
         padding-inline: 2rem;
     }
-    
+
     .header {
-        position: unset;
-        padding: 0;
-        background-color: unset;
+        height: unset;
     }
 
     .nav-background {
         display: none;
     }
-    
+
     .menu {
         display: none;
     }
@@ -285,10 +294,18 @@ button {
     .nav {
         all: unset;
         display: flex;
+        max-width: var(--maxWidthCap);
+        padding-block: 1.4rem;
+        padding-inline: 2rem;
+        margin-inline: auto;
         gap: 4rem;
-        padding-block: 2rem;
     }
-    
+
+    .nav button {
+        min-width: unset;
+        flex-grow: 1;
+    }
+
     .pagination button:hover {
         cursor: pointer;
         background-color: var(--primaryColor);
