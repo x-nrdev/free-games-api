@@ -83,6 +83,14 @@ const fetchData = async (tag = 'battle-royale') => {
     addPaginationButtons()
 }
 
+const updatePageBlur =  () => {
+    const main = document.querySelector('main')
+    const footer = document.querySelector('footer')
+
+    main.classList.toggle('blur')
+    footer.classList.toggle('blur')
+}
+
 // Update games category
 const updateGamesCategory = () => {
     buttons.forEach(button => {
@@ -102,6 +110,7 @@ const updateGamesCategory = () => {
 
             pagElement.innerHTML = ''
             fetchData(tag)
+            updatePageBlur()
             globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         })
     })
@@ -118,6 +127,8 @@ const updateScrollStatus = () => {
     navMenu.addEventListener('click', () => {
         const bodyClass = document.body.classList
         navMenu.classList.contains('opened') ? bodyClass.add('no-scroll') : bodyClass.remove('no-scroll')
+
+        updatePageBlur()
     })
 }
 
