@@ -7,7 +7,7 @@ const fetchData = async (tag = 'battle-royale') => {
     const response = await fetch(url)
     const data = await response.json()
 
-    const gamesPagination = 6
+    const gamesPagination = 12
     const delayMultiplier = 100
 
     // Set Data
@@ -81,10 +81,12 @@ const buttons = document.querySelectorAll('.btn')
 buttons.forEach(button => {
     button.addEventListener('click', e => {
         const thisBtn = e.target
-        const navMenu = document.querySelector('.menu')
-        
-        navMenu.classList.remove('opened')
-        
+        const menu = document.querySelector('.menu')
+        const bodyClass = document.body.classList
+
+        menu.classList.remove('opened')
+        bodyClass.remove('no-scroll')
+
         if (thisBtn.classList.contains('active')) return
         const tag = thisBtn.dataset.tag
         const activeNavButton = document.querySelector('.btn.active')
@@ -93,6 +95,7 @@ buttons.forEach(button => {
 
         pagElement.innerHTML = ''
         fetchData(tag)
+        globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     })
 })
 buttons[0].classList.add('active')
@@ -101,5 +104,12 @@ const updateActiveBtn = (activeButton, inactiveButton) => {
     activeButton.classList.remove('active')
     inactiveButton.classList.add('active')
 }
+
+const navMenu = document.querySelector('button.menu')
+
+navMenu.addEventListener('click', () => {
+    const bodyClass = document.body.classList
+    navMenu.classList.contains('opened') ? bodyClass.add('no-scroll') : bodyClass.remove('no-scroll')
+})
 
 fetchData()
