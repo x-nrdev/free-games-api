@@ -23,7 +23,21 @@ app.get('/api', async (req, res) => {
             'X-RapidAPI-Host': API_HOST
         }
     };
-    const response = await fetch(`${API_URL}?tag=${tag}`, options)
+    const response = await fetch(`${API_URL}/filter?tag=${tag}`, options)
+    const data = await response.json()
+
+    res.json(data)
+})
+
+app.get('/api/games', async (req, res) => {
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': API_KEY,
+            'X-RapidAPI-Host': API_HOST
+        }
+    };
+    const response = await fetch(`${API_URL}/games`, options)
     const data = await response.json()
 
     res.json(data)
