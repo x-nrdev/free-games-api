@@ -1,5 +1,5 @@
 :root {
-    --primaryColor: lightcoral;
+    --primaryColor: hsl(0, 79%, 72%);
     --bgColor: #191528;
     --menuSize: 60px;
     --menuTiming: .6s;
@@ -51,6 +51,62 @@ footer {
     transition: filter var(--menuTiming) ease-in-out;
 }
 
+/* Components */
+
+.line {
+    fill: none;
+    stroke: white;
+    stroke-width: 4;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+        stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 4;
+}
+
+.line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: 4;
+}
+
+.line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 4;
+}
+
+.opened .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 4;
+}
+
+.opened .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 4;
+}
+
+.opened .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 4;
+}
+
+input[type=text] {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    appearance: none;
+    border: none;
+    outline: none;
+    padding: .6rem 1rem;
+    border-bottom: .2em solid var(--primaryColor);
+    background: hsl(0, 50%, 20%);
+    border-radius: .2em .2em 0 0;
+    color: var(--primaryColor);
+    font-size: 1.2rem;
+}
+
 /* Nav */
 .header {
     width: 100%;
@@ -99,49 +155,6 @@ footer {
     border-radius: 50%;
     background-color: var(--bgOpacity);
     transition: var(--menuTiming) ease-in-out scale;
-}
-
-
-
-.line {
-    fill: none;
-    stroke: white;
-    stroke-width: 4;
-    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-        stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.line1 {
-    stroke-dasharray: 60 207;
-    stroke-width: 4;
-}
-
-.line2 {
-    stroke-dasharray: 60 60;
-    stroke-width: 4;
-}
-
-.line3 {
-    stroke-dasharray: 60 207;
-    stroke-width: 4;
-}
-
-.opened .line1 {
-    stroke-dasharray: 90 207;
-    stroke-dashoffset: -134;
-    stroke-width: 4;
-}
-
-.opened .line2 {
-    stroke-dasharray: 1 60;
-    stroke-dashoffset: -30;
-    stroke-width: 4;
-}
-
-.opened .line3 {
-    stroke-dasharray: 90 207;
-    stroke-dashoffset: -134;
-    stroke-width: 4;
 }
 
 /* Nav */

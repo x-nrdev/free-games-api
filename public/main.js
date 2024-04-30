@@ -148,7 +148,7 @@ const searchGame = (gameToFind = '') => {
     pagElement.innerHTML = ''
 
     // Find the game
-    
+
     return setTimeout(async () => {
         const url = `/api/games`
         const response = await fetch(url)
