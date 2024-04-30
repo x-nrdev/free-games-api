@@ -1,15 +1,17 @@
 // Variables
 const navMenu = document.querySelector('button.menu')
 const buttons = document.querySelectorAll('.btn')
+const search = document.querySelector('#search')
 const ulElem = document.querySelector('.thumbnails')
 const pagElement = document.querySelector('.pagination')
+// let searchData = [];
 
 // Data Fetch
 const fetchData = async (tag = 'battle-royale') => {
-    const url = `/api?tag=${tag}`
+    const url = `/api`
     const response = await fetch(url)
     const data = await response.json()
-
+    
     const gamesPagination = 12
     const delayMultiplier = 100
 
@@ -132,6 +134,36 @@ const updateScrollStatus = () => {
     })
 }
 
+// Search functionality
+const searchGame = (gameToFind = '') => {
+    if (gameToFind.length === 0) {
+        return
+    }
+
+    const timeToSearchGame = 1 // Seconds
+    
+    return setTimeout(async () => {
+        const url = `/api/games`
+        const response = await fetch(url)
+        const data = await response.json()
+
+        const findGame = data.filter(game => {
+            const title = game.title.toLowerCase()
+            return title.includes(gameToFind)
+        })
+
+        console.log(findGame)
+    }, timeToSearchGame * 1000);
+}
+let searchGameTimeoutID = 0
+
+search.addEventListener('input', e => {
+    e.preventDefault()
+    clearTimeout(searchGameTimeoutID)
+    const gameToFind = e.target.value
+    searchGameTimeoutID = searchGame(gameToFind)
+})
+
 fetchData()
-updateGamesCategory()
+updateGamesCategory();
 updateScrollStatus()

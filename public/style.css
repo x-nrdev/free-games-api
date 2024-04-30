@@ -193,6 +193,11 @@ footer {
     border: 1px solid transparent;
 }
 
+/* Search */
+.search {
+    text-align: center;
+}
+
 /* Main */
 .thumbnails,
 .pagination {
