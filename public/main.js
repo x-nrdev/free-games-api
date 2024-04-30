@@ -8,7 +8,7 @@ let searchGameTimeoutID = 0
 
 // Data Fetch
 const fetchData = async (tag = 'battle-royale') => {
-    const url = `/api`
+    const url = `/api?tag=${tag}`
     const response = await fetch(url)
     const data = await response.json()
 
