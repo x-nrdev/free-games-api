@@ -31,6 +31,7 @@ h3 {
 }
 
 main {
+    min-height: 100dvh;
     margin-block-start: 6rem;
     margin-inline: auto;
 }
@@ -48,21 +49,6 @@ button {
 main,
 footer {
     transition: filter var(--menuTiming) ease-in-out;
-}
-
-/* Utilities */
-.no-scroll {
-    overflow: hidden;
-}
-
-.wrapper {
-    position: relative;
-    margin-inline: auto;
-    max-width: var(--maxWidthCap);
-}
-
-.blur {
-    filter: blur(2px);
 }
 
 /* Nav */
@@ -211,7 +197,6 @@ footer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    min-height: 110dvh;
     gap: 2rem;
 }
 
@@ -279,6 +264,21 @@ footer {
 
 .footer p {
     margin: 0;
+}
+
+/* Utilities */
+.no-scroll {
+    overflow: hidden;
+}
+
+.wrapper {
+    position: relative;
+    margin-inline: auto;
+    max-width: var(--maxWidthCap);
+}
+
+.blur {
+    filter: blur(2px);
 }
 
 /* Keyframes */
