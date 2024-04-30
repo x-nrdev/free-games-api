@@ -86,6 +86,7 @@ const fetchData = async (tag = 'battle-royale') => {
 }
 
 const updatePageBlur = () => {
+    if (window.innerWidth > 768) return
     const main = document.querySelector('main')
     const footer = document.querySelector('footer')
 
