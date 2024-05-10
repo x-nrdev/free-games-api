@@ -1,5 +1,7 @@
+// Modules
+import { updatePageBlur, updateScrollStatus, updateActiveButton } from './js/utils.js'
+
 // Variables
-const navMenu = document.querySelector('button.menu')
 const buttons = document.querySelectorAll('.btn')
 const search = document.querySelector('#search')
 const ulElem = document.querySelector('.thumbnails')
@@ -85,15 +87,6 @@ const fetchData = async (tag = 'battle-royale') => {
     addPaginationButtons()
 }
 
-const updatePageBlur = () => {
-    if (window.innerWidth > 768) return
-    const main = document.querySelector('main')
-    const footer = document.querySelector('footer')
-
-    main.classList.toggle('blur')
-    footer.classList.toggle('blur')
-}
-
 // Update games category
 const updateGamesCategory = () => {
     buttons.forEach(button => {
@@ -117,22 +110,6 @@ const updateGamesCategory = () => {
             updatePageBlur()
             globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         })
-    })
-}
-
-// Update category buttons
-const updateActiveButton = (activeButton, inactiveButton) => {
-    activeButton.classList.remove('active')
-    inactiveButton.classList.add('active')
-}
-
-// Remove scroll when menu is opened
-const updateScrollStatus = () => {
-    navMenu.addEventListener('click', () => {
-        const bodyClass = document.body.classList
-        navMenu.classList.contains('opened') ? bodyClass.add('no-scroll') : bodyClass.remove('no-scroll')
-
-        updatePageBlur()
     })
 }
 
