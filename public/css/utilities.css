@@ -1,0 +1,28 @@
+.no-scroll {
+    overflow: hidden;
+}
+
+.wrapper {
+    position: relative;
+    margin-inline: auto;
+    max-width: var(--maxWidthCap);
+}
+
+.blur {
+    filter: blur(2px);
+}
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        padding-inline: 2rem;
+    }
+
+    body.no-scroll {
+        overflow: scroll;
+    }
+
+    main.blur,
+    footer.blur {
+        filter: unset;
+    }
+}
