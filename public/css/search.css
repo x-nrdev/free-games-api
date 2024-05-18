@@ -11,6 +11,10 @@ input[type=text] {
     font-size: 1.2rem;
 }
 
+input[type=text]::placeholder {
+    color: var(--primaryColor);
+}
+
 .search {
     text-align: center;
 }
