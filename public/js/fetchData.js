@@ -3,6 +3,8 @@ import { updateActiveButton, updateLoadingState } from './utils.js'
 
 // Data Fetch
 const fetchData = async (tag = 'battle-royale') => {
+    ulElem.innerHTML = ''
+    paginationElement.innerHTML = ''
     updateLoadingState(true)
     const url = `/api?tag=${tag}`
     const response = await fetch(url)

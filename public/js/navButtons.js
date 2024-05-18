@@ -1,6 +1,5 @@
 import fetchData from './fetchData.js'
 import { updatePageBlur, updateActiveButton } from './utils.js'
-import { paginationElement } from '../main.js'
 
 // Update games category
 const navButtons = () => {
@@ -20,8 +19,6 @@ const navButtons = () => {
             const activeNavButton = document.querySelector('.btn.active')
 
             updateActiveButton(activeNavButton, thisBtn)
-
-            paginationElement.innerHTML = ''
             search.value = ''
             fetchData(tag)
             updatePageBlur()
