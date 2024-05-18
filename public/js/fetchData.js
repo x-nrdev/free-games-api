@@ -32,7 +32,7 @@ const fetchData = async (tag = 'battle-royale') => {
                 <div class="card">
                     <h3>${title}</h3>
                     <a href='${game_url}' target='_blank'>
-                        <img src="${thumbnail}" alt="${title}">
+                        <img src="${thumbnail}" alt="${title}" width='256' height='144'>
                     </a>
                     <p>${short_description}</p>
                 </div>
