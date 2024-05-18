@@ -9,7 +9,8 @@ export const search = () => {
     // Search functionality
     const searchGame = (gameToFind = '') => {
         if (gameToFind.length === 0) {
-            fetchData()
+            const tag = document.querySelector('.btn.active').dataset.tag
+            fetchData(tag)
             return
         }
         
