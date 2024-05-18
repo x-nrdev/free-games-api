@@ -1,6 +1,7 @@
 import { ulElem, paginationElement } from '../main.js'
 import fetchData from './fetchData.js'
 import { updateLoadingState } from './utils.js'
+import gameCard from './gameCard.js'
 
 export const search = () => {
     const search = document.querySelector('#search')
@@ -33,24 +34,7 @@ export const search = () => {
                 return title.includes(gameToFind)
             })
 
-            findGame.map(game => {
-                const {
-                    title,
-                    thumbnail,
-                    short_description,
-                    game_url
-                } = game
-
-                ctx += `<li class='thumbnail'>
-                        <div class="card">
-                            <h3>${title}</h3>
-                            <a href='${game_url}' target='_blank'>
-                                <img src="${thumbnail}" alt="${title}">
-                            </a>
-                            <p>${short_description}</p>
-                        </div>
-                    </li>`
-            })
+            findGame.map(game => ctx += gameCard(game))
 
             ulElem.innerHTML = ctx
             updateLoadingState(false)
@@ -61,7 +45,6 @@ export const search = () => {
     search.addEventListener('input', event => {
         event.preventDefault()
         const searchInput = event.target.value.toLowerCase()
-        console.log(searchInput)
         clearTimeout(searchGameTimeoutID)
         searchGameTimeoutID = searchGame(searchInput)
     })

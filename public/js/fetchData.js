@@ -1,5 +1,6 @@
 import { ulElem, paginationElement } from '../main.js'
 import { updateActiveButton, updateLoadingState } from './utils.js'
+import gameCard from './gameCard.js'
 
 // Data Fetch
 const fetchData = async (tag = 'battle-royale') => {
@@ -27,19 +28,10 @@ const fetchData = async (tag = 'battle-royale') => {
                 game_url
             } = game
             delay += delayMultiplier
-            const liElem = `
-            <li class='thumbnail' style='animation-delay: ${delay}ms'>
-                <div class="card">
-                    <h3>${title}</h3>
-                    <a href='${game_url}' target='_blank'>
-                        <img src="${thumbnail}" alt="${title}" width='256' height='144'>
-                    </a>
-                    <p>${short_description}</p>
-                </div>
-            </li>
-        `
+            const liElem = gameCard(game, delay)
             ctx += liElem
         })
+
         ulElem.innerHTML = ctx
     }
 
