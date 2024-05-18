@@ -26,3 +26,21 @@
         filter: unset;
     }
 }
+
+/* HTML: <div class="loading"></div> */
+.loading.active {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid lightblue;
+    border-right-color: var(--primaryColor);
+    animation: l2 1s infinite linear;
+    margin-block: 4rem;
+    margin-inline: auto;
+}
+
+@keyframes l2 {
+    to {
+        transform: rotate(1turn)
+    }
+}

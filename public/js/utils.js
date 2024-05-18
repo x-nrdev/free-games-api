@@ -24,3 +24,9 @@ export const updateActiveButton = (activeButton, inactiveButton) => {
     activeButton.classList.remove('active')
     inactiveButton.classList.add('active')
 }
+
+// Update loading state
+export const updateLoadingState = isLoading => {
+    const loading = document.querySelector('.loading')
+    isLoading ? loading.classList.add('active') : loading.classList.remove('active')
+}

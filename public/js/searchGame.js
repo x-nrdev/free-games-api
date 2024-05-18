@@ -1,27 +1,31 @@
 import { ulElem, paginationElement } from '../main.js'
 import fetchData from './fetchData.js'
+import { updateLoadingState } from './utils.js'
 
 export const search = () => {
     const search = document.querySelector('#search')
     let searchGameTimeoutID = 0
-
     // Search functionality
     const searchGame = (gameToFind = '') => {
         if (gameToFind.length === 0) {
             fetchData()
             return
         }
-
+        
         const timeToSearchGame = 0.5 // Seconds
-
-        // Hide pagination when searching
+        
+        // Reset DOM
         paginationElement.innerHTML = ''
+        ulElem.innerHTML = ''
+        updateLoadingState(true)
+
         
         // Find the game
         return setTimeout(async () => {
             const url = `/api/games`
             const response = await fetch(url)
             const data = await response.json()
+
             let ctx = ''
 
             const findGame = data.filter(game => {
@@ -49,6 +53,7 @@ export const search = () => {
             })
 
             ulElem.innerHTML = ctx
+            updateLoadingState(false)
         }, timeToSearchGame * 1000);
     }
 

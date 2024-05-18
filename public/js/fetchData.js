@@ -1,8 +1,9 @@
 import { ulElem, paginationElement } from '../main.js'
-import { updateActiveButton } from './utils.js'
+import { updateActiveButton, updateLoadingState } from './utils.js'
 
 // Data Fetch
 const fetchData = async (tag = 'battle-royale') => {
+    updateLoadingState(true)
     const url = `/api?tag=${tag}`
     const response = await fetch(url)
     const data = await response.json()
@@ -78,6 +79,7 @@ const fetchData = async (tag = 'battle-royale') => {
 
     setData()
     addPaginationButtons()
+    updateLoadingState(false)
 }
 
 export default fetchData
