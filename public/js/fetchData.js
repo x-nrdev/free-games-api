@@ -21,12 +21,6 @@ const fetchData = async (tag = 'battle-royale') => {
         let delay = 0
         let ctx = ''
         games.forEach(game => {
-            const {
-                title,
-                thumbnail,
-                short_description,
-                game_url
-            } = game
             delay += delayMultiplier
             const liElem = gameCard(game, delay)
             ctx += liElem
@@ -66,7 +60,7 @@ const fetchData = async (tag = 'battle-royale') => {
                 const page = Number.parseInt(thisBtn.innerText)
                 updateActiveButton(activePagination, thisBtn)
                 setData(page)
-                globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" })
             })
         })
     }
