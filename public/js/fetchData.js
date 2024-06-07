@@ -144,6 +144,7 @@ const fetchData = async (tag = 'battle-royale') => {
                 btn.addEventListener('click', e => {
                     e.preventDefault()
                     if (e.target.classList.contains('active')) return
+                    globalThis.scrollTo({ top: 0, behavior: 'smooth' })
                     const page = +e.target.dataset.page
                     pagination(games, page)
                 })
