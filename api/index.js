@@ -22,7 +22,7 @@ app.get('/api', async (req, res) => {
             'X-RapidAPI-Key': API_KEY,
             'X-RapidAPI-Host': API_HOST
         }
-    };
+    }
     const response = await fetch(`${API_URL}/filter?tag=${tag}`, options)
     const data = await response.json()
 
@@ -36,7 +36,7 @@ app.get('/api/games', async (req, res) => {
             'X-RapidAPI-Key': API_KEY,
             'X-RapidAPI-Host': API_HOST
         }
-    };
+    }
     const response = await fetch(`${API_URL}/games`, options)
     const data = await response.json()
 
@@ -44,5 +44,5 @@ app.get('/api/games', async (req, res) => {
 })
 
 app.use(express.static('public'))
-
-module.exports = app;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+module.exports = app

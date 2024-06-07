@@ -6,68 +6,56 @@ import gameCard from './gameCard.js'
 const fetchData = async (tag = 'battle-royale') => {
     ulElem.innerHTML = ''
     paginationElement.innerHTML = ''
+
     updateLoadingState(true)
+
     const url = `/api?tag=${tag}`
     const response = await fetch(url)
     const data = await response.json()
 
-    const gamesPagination = 12
-    const delayMultiplier = 100
+    // Pagination
+    const pagination = (games, page = 0) => {
+        const gamesPerPage = 12 // Number of games per page
+        const delayMultiplier = 100
+        const totalGames = games.length
+        const totalPages = Math.ceil(totalGames / gamesPerPage) // Calculate total pages
 
-    // Insert fetched data to the DOM
-    const setData = (pag = 1) => {
-        const pagCalc = pag * gamesPagination - gamesPagination
-        const games = data.slice(pagCalc, pagCalc + gamesPagination)
-        let delay = 0
-        let ctx = ''
-        games.forEach(game => {
-            delay += delayMultiplier
-            const liElem = gameCard(game, delay)
-            ctx += liElem
-        })
+        const startIndex = page * gamesPerPage
+        const endIndex = (page * gamesPerPage) + gamesPerPage
+        games = games.slice(startIndex, endIndex)
 
-        ulElem.innerHTML = ctx
-    }
-
-    // Insert pagination buttons to the DOM
-    const addPaginationButtons = () => {
-        const pagButtonsCounter = Math.ceil(data.length / gamesPagination)
-        for (let i = 1; i <= pagButtonsCounter; i++) {
-            if (i === 1) {
-                const liElem = `
-                <li>
-                    <button class='fn-pagination active'>${i}</button>
-                </li>
-            `
-                paginationElement.innerHTML += liElem
-            } else {
-                const liElem = `
-                <li>
-                    <button class='fn-pagination'>${i}</button>
-                </li>
-            `
-                paginationElement.innerHTML += liElem
-            }
+        // Insert fetched data to the DOM
+        const setData = () => {
+            console.log(games)
+            let ctx = ''
+            let delay = delayMultiplier
+            games.forEach(game => {
+                delay += delayMultiplier
+                const liElem = gameCard(game, delay)
+                ctx += liElem
+            })
+            ulElem.innerHTML = ctx
         }
 
-        // Add funcionality to pagination buttons
-        const pagButtons = document.querySelectorAll('.fn-pagination')
-        pagButtons.forEach(button => {
-            button.addEventListener('click', e => {
-                if (button.classList.contains('active')) return
-                const activePagination = document.querySelector('.fn-pagination.active')
-                const thisBtn = e.target
-                const page = Number.parseInt(thisBtn.innerText)
-                updateActiveButton(activePagination, thisBtn)
-                setData(page)
-                globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-            })
-        })
+        // Insert pagination to the DOM
+        const setPagination = () => {
+            let ctx = ''
+            for (let i = 0; i < totalPages; i++) {
+                const page = i + 1
+                ctx += `
+                    <li class="pagination-item}">
+                        <button class="pagination-button" data-page="${page}">${page}</button>
+                    </li>
+                `
+            }
+            paginationElement.innerHTML = ctx
+        }
+
+        setData()
+        updateLoadingState(false)
     }
 
-    setData()
-    addPaginationButtons()
-    updateLoadingState(false)
+    pagination(data)
 }
 
 export default fetchData
