@@ -44,5 +44,4 @@ app.get('/api/games', async (req, res) => {
 })
 
 app.use(express.static('public'))
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 module.exports = app
