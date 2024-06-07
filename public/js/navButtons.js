@@ -6,6 +6,8 @@ const navButtons = () => {
     const buttons = document.querySelectorAll('.btn')
     buttons.forEach(button => {
         button.addEventListener('click', e => {
+            e.preventDefault()
+            if (e.target.classList.contains('active')) return
             const thisBtn = e.target
             const menu = document.querySelector('.menu')
             const bodyClass = document.body.classList
@@ -14,7 +16,7 @@ const navButtons = () => {
             bodyClass.remove('no-scroll')
 
             if (thisBtn.classList.contains('active')) return
-            
+
             const tag = thisBtn.dataset.tag
             const activeNavButton = document.querySelector('.btn.active')
 
@@ -22,7 +24,7 @@ const navButtons = () => {
             search.value = ''
             fetchData(tag)
             updatePageBlur()
-            globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" })
         })
     })
 }
