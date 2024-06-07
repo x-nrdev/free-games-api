@@ -30,14 +30,13 @@ const fetchData = async (tag = 'battle-royale') => {
 
         const startIndex = (page - 1) * gamesPerPage
         const endIndex = page * gamesPerPage
-        games = games.slice(startIndex, endIndex)
+        const paginatedGames = games.slice(startIndex, endIndex)
 
         // Insert fetched data to the DOM
         const setData = () => {
-            console.log(games)
             let ctx = ''
             let delay = delayMultiplier
-            games.forEach(game => {
+            paginatedGames.forEach(game => {
                 delay += delayMultiplier
                 const liElem = gameCard(game, delay)
                 ctx += liElem
@@ -49,21 +48,95 @@ const fetchData = async (tag = 'battle-royale') => {
         const setPagination = () => {
             // Insert pagination buttons
             let ctx = ''
-            for (let i = 0; i < totalPages; i++) {
-                const btnPage = i + 1
-                const isActive = btnPage === page ? 'active' : ''
 
+            // Previous button
+            if (page > 1) {
                 ctx += `
-                    <li class="pagination-item">
-                        <button 
-                            class="fn-pagination ${isActive}"
-                            data-page="${btnPage}"
-                        >
-                            ${btnPage}
-                        </button>
-                    </li>
-                `
+                <li class="pagination-item">
+                    <button 
+                        class="fn-pagination"
+                        data-page="${page - 1}"
+                    >
+                        &laquo;
+                    </button>
+                </li>
+            `
             }
+
+            // First page
+            ctx += `
+            <li class="pagination-item">
+                <button 
+                    class="fn-pagination ${page === 1 ? 'active' : ''}"
+                    data-page="1"
+                >
+                    1
+                </button>
+            </li>
+        `
+
+            // Dots if needed
+            if (page > 3) {
+                ctx += `
+                <li class="pagination-item">
+                    <span>...</span>
+                </li>
+            `
+            }
+
+            // Middle pages
+            const startPage = Math.max(2, page - 1)
+            const endPage = Math.min(totalPages - 1, page + 1)
+            for (let i = startPage; i <= endPage; i++) {
+                ctx += `
+                <li class="pagination-item">
+                    <button 
+                        class="fn-pagination ${i === page ? 'active' : ''}"
+                        data-page="${i}"
+                    >
+                        ${i}
+                    </button>
+                </li>
+            `
+            }
+
+            // Dots if needed
+            if (page < totalPages - 2) {
+                ctx += `
+                <li class="pagination-item">
+                    <span>...</span>
+                </li>
+            `
+            }
+
+            // Last page
+            if (totalPages > 1) {
+                ctx += `
+                <li class="pagination-item">
+                    <button 
+                        class="fn-pagination ${page === totalPages ? 'active' : ''}"
+                        data-page="${totalPages}"
+                    >
+                        ${totalPages}
+                    </button>
+                </li>
+            `
+            }
+
+            // Next button
+            if (page < totalPages) {
+                ctx += `
+                <li class="pagination-item">
+                    <button 
+                        class="fn-pagination"
+                        data-page="${page + 1}"
+                    >
+                        &raquo;
+                    </button>
+                </li>
+            `
+            }
+
             paginationElement.innerHTML = ctx
 
             // Add event listeners to pagination buttons
@@ -72,7 +145,7 @@ const fetchData = async (tag = 'battle-royale') => {
                     e.preventDefault()
                     if (e.target.classList.contains('active')) return
                     const page = +e.target.dataset.page
-                    pagination(data, page)
+                    pagination(games, page)
                 })
             })
         }
@@ -81,6 +154,7 @@ const fetchData = async (tag = 'battle-royale') => {
         setPagination()
         updateLoadingState(false)
     }
+
 
     pagination(data, 1)
 }
