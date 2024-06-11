@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node --env-file=.env api/index.js",
-    "build": "npm i && node api/index.js",
-    "dev": "nodemon --env-file=.env api/index.js"
+    "start": "cross-env DEBUG=app:free-games-api node --env-file=.env api/index.js",
+    "build": "npm i && cross-env DEBUG=app:free-games-api node api/index.js",
+    "dev": "cross-env DEBUG=app:free-games-api nodemon --env-file=.env api/index.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
     "express": "^4.19.2"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "debug": "^4.3.4",
     "nodemon": "^3.1.0"
   }
