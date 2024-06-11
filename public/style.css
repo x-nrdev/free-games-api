@@ -3,7 +3,7 @@
     --bgColor: #191528;
     --menuSize: 60px;
     --menuTiming: .6s;
-    --bgOpacity: rgba(0, 0, 0, 0.6);
+    --bgOpacity: rgba(0, 0, 0, 0.8);
     --backdropBlur: 4px;
     --maxWidthCap: 940px;
 }

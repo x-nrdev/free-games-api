@@ -17,12 +17,13 @@ const navButtons = () => {
 
             if (thisBtn.classList.contains('active')) return
 
-            const tag = thisBtn.dataset.tag
+            const sortBy = thisBtn.dataset.sortBy
+            console.log(sortBy)
             const activeNavButton = document.querySelector('.btn.active')
 
             updateActiveButton(activeNavButton, thisBtn)
             search.value = ''
-            fetchData(tag)
+            fetchData(sortBy)
             updatePageBlur()
             globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" })
         })

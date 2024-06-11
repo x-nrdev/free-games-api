@@ -8,8 +8,8 @@
 
 .thumbnails {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
 }
 
@@ -41,10 +41,6 @@
 .card a {
     display: inline-block;
     overflow: hidden;
-}
-
-.card p {
-    flex-grow: 1;
 }
 
 .pagination {

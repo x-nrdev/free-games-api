@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-
+const debug = require('debug')('app:free-games-api')
 const app = express()
 
 // Env environments
@@ -37,11 +37,13 @@ app.get('/api/games', async (req, res) => {
             'X-RapidAPI-Host': API_HOST
         }
     }
-    const response = await fetch(`${API_URL}/games`, options)
+    const sortByOption = req.query['sort-by'] || 'release-date'
+    debug(sortByOption)
+    const response = await fetch(`${API_URL}/games?sort-by=${sortByOption}`, options)
     const data = await response.json()
-
     res.json(data)
 })
 
 app.use(express.static('public'))
+// app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 module.exports = app
