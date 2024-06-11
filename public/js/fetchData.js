@@ -2,11 +2,19 @@ import { ulElem, paginationElement } from '../main.js'
 import { updateActiveButton, updateLoadingState } from './utils.js'
 import gameCard from './gameCard.js'
 
+
+const sortByOptions = Object.freeze({
+    RELEASE_DATE: 'release-date',
+    POPULARITY: 'popularity',
+    ALPHABETICAL: 'alphabetical',
+    RELEVANCE: 'relevance'
+})
+
 // Data Fetch
-const fetchData = async (tag = 'battle-royale') => {
+const fetchData = async (sortByOption = sortByOptions.RELEASE_DATE) => {
     ulElem.innerHTML = ''
     paginationElement.innerHTML = ''
-    const url = `/api?tag=${tag}`
+    const url = `/api/games?sort-by=${sortByOption}`
     let data = []
     updateLoadingState(true)
 
