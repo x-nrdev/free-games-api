@@ -13,8 +13,11 @@
 }
 
 .game-not-found {
+    padding-inline: 2rem;
     color: var(--primaryColor);
     font-size: 1.4rem;
+    text-wrap: pretty;
+    text-align: center;
 }
 
 @media screen and (min-width: 768px) {
