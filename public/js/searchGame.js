@@ -13,15 +13,15 @@ export const search = () => {
             fetchData(tag)
             return
         }
-        
+
         const timeToSearchGame = 0.5 // Seconds
-        
+
         // Reset DOM
         paginationElement.innerHTML = ''
         ulElem.innerHTML = ''
         updateLoadingState(true)
 
-        
+
         // Find the game
         return setTimeout(async () => {
             const url = `/api/games`
@@ -35,11 +35,15 @@ export const search = () => {
                 return title.includes(gameToFind)
             })
 
-            findGame.map(game => ctx += gameCard(game))
+            if (findGame.length === 0) {
+                ctx = `<p class="game-not-found">No game found with the title "${gameToFind}"</p>`
+            } else {
+                findGame.map(game => ctx += gameCard(game))
+            }
 
             ulElem.innerHTML = ctx
             updateLoadingState(false)
-        }, timeToSearchGame * 1000);
+        }, timeToSearchGame * 1000)
     }
 
     // Add event Listeners
