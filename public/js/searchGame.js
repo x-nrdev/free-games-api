@@ -9,8 +9,8 @@ export const search = () => {
     // Search functionality
     const searchGame = (gameToFind = '') => {
         if (gameToFind.length === 0) {
-            const tag = document.querySelector('.btn.active').dataset.tag
-            fetchData(tag)
+            const sortBy = document.querySelector('.btn.active').dataset.sortBy
+            fetchData(sortBy)
             return
         }
 
