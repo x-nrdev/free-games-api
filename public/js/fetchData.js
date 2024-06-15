@@ -1,6 +1,7 @@
 import { ulElem, paginationElement } from '../main.js'
-import { updateActiveButton, updateLoadingState } from './utils.js'
+import { updateLoadingState } from './utils.js'
 import gameCard from './gameCard.js'
+import filter from './filter.js'
 
 
 const sortByOptions = Object.freeze({
@@ -9,7 +10,6 @@ const sortByOptions = Object.freeze({
     ALPHABETICAL: 'alphabetical',
     RELEVANCE: 'relevance'
 })
-
 // Data Fetch
 const fetchData = async (sortByOption = sortByOptions.RELEASE_DATE) => {
     ulElem.innerHTML = ''
@@ -21,6 +21,7 @@ const fetchData = async (sortByOption = sortByOptions.RELEASE_DATE) => {
     try {
         const response = await fetch(url)
         data = await response.json()
+        console.log(data)
     } catch (err) {
         console.error(err)
         return
@@ -164,7 +165,7 @@ const fetchData = async (sortByOption = sortByOptions.RELEASE_DATE) => {
         updateLoadingState(false)
     }
 
-
+    filter(data, pagination)
     pagination(data, 1)
 }
 

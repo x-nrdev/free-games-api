@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Free Games</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="./css/modules.css">
+  <link rel="stylesheet" href="./css/modules.css" />
   <script defer type="module" src="main.js"></script>
 </head>
 
@@ -25,10 +25,18 @@
         </svg>
       </button>
       <nav class="nav">
-        <button class="btn active" data-sortBy="release-date">release date</button>
-        <button class="btn" data-sort-by="popularity">popularity</button>
-        <button class="btn" data-sort-by="alphabetical">alphabetical</button>
-        <button class="btn" data-sort-by="relevance">relevance</button>
+        <button class="btn active" data-sortBy="release-date">
+          release date
+        </button>
+        <button class="btn" data-sort-by="popularity">
+          popularity
+        </button>
+        <button class="btn" data-sort-by="alphabetical">
+          alphabetical
+        </button>
+        <button class="btn" data-sort-by="relevance">
+          relevance
+        </button>
       </nav>
       <div class="nav-background"></div>
     </header>
@@ -36,13 +44,22 @@
       <h1>Free Games</h1>
       <div class="search">
         <label for="search">
-          <input type="text" name="search" id="search" placeholder="Find game...">
+          <input type="text" name="search" id="search" placeholder="Find game..." />
         </label>
       </div>
+      <form class="filter">
+        <div class="radio-container">
+          <input type="radio" name="platform" id="pc" value="pc" />
+          <label for="pc">pc</label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" name="platform" id="browser" value="browser" />
+          <label for="browser">browser</label>
+        </div>
+      </form>
       <div class="loading"></div>
       <section>
-        <ul class="thumbnails">
-        </ul>
+        <ul class="thumbnails"></ul>
       </section>
       <ul class="pagination"></ul>
     </main>
@@ -51,7 +68,11 @@
     <p>Made with ❤️ by Nelson Rojas</p>
   </footer>
   <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments) };
+    window.va =
+      window.va ||
+      function () {
+        (window.vaq = window.vaq || []).push(arguments)
+      };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
