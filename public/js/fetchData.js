@@ -21,7 +21,6 @@ const fetchData = async (sortByOption = sortByOptions.RELEASE_DATE) => {
     try {
         const response = await fetch(url)
         data = await response.json()
-        console.log(data)
     } catch (err) {
         console.error(err)
         return
@@ -31,7 +30,7 @@ const fetchData = async (sortByOption = sortByOptions.RELEASE_DATE) => {
     const pagination = (games, page = 1) => {
         if (games.length === 0) return
         if (Number.isNaN(page)) return
-
+        console.log(games)
         const gamesPerPage = 12 // Number of games per page
         const delayMultiplier = 100
         const totalGames = games.length
@@ -165,8 +164,8 @@ const fetchData = async (sortByOption = sortByOptions.RELEASE_DATE) => {
         updateLoadingState(false)
     }
 
-    filter(data, pagination)
-    pagination(data, 1)
+    filter(data, pagination, sortByOptions.RELEASE_DATE)
+    pagination(data, 1,)
 }
 
 export default fetchData

@@ -38,10 +38,42 @@ app.get('/api/games', async (req, res) => {
         }
     }
     const sortByOption = req.query['sort-by'] || 'release-date'
-    debug(sortByOption)
     const response = await fetch(`${API_URL}/games?sort-by=${sortByOption}`, options)
     const data = await response.json()
     res.json(data)
+})
+app.get('/filter', async (req, res) => {
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': API_KEY,
+            'X-RapidAPI-Host': API_HOST
+        }
+    }
+    const sortByOption = req.query['sort-by'] || 'release-date'
+    const tag = req.query['tag'] || ''
+    const platform = req.query['platform'] || ''
+    let query = `sort-by=${sortByOption}`
+
+    debug('tag', tag, 'is true?', !(tag === ''))
+
+    if (platform) {
+        query += `&platform=${platform}`
+    } else if (!(tag === '')) {
+        debug('tag', tag)
+        query += `&tag=${tag}`
+    }
+
+    debug(`${API_URL}/filter?${query}`)
+
+    try {
+        const response = await fetch(`${API_URL}/filter?${query}`, options)
+        const data = await response.json()
+        res.json(data)
+    } catch (err) {
+        console.error(err)
+        return
+    }
 })
 
 app.use(express.static('public'))

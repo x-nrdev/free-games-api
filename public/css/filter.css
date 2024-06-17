@@ -4,13 +4,24 @@
     font-weight: 500;
 }
 
-.filter input[type=radio] {
+.form-title {
+    display: block;
+    margin-block-end: 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.filter input[type=radio],
+.filter input[type=checkbox] {
     display: none;
 }
 
-.filter .radio-container {
+.filter .radio-container,
+.filter .genre-container {
     display: flex;
     padding-inline: 2rem;
+    margin-block-end: 2rem;
     column-gap: 1rem;
     justify-content: center;
 }
@@ -28,7 +39,8 @@
 }
 
 .filter label:hover,
-.filter input[type=radio]:checked+label {
+.filter input[type=radio]:checked+label,
+.filter input[type=checkbox]:checked+label {
     color: var(--primaryColor);
     border-bottom: var(--borderBottom);
 }

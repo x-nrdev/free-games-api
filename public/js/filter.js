@@ -1,23 +1,50 @@
-const filter = (data, pagination) => {
+const filter = async (data, pagination, sortByOption) => {
     const filter = document.querySelector('form.filter')
+    let url = `/filter?sort-by=${sortByOption}`
 
-    filter.addEventListener('change', e => {
+    const fetchData = async (formatedUrl) => {
+        try {
+            const response = await fetch(formatedUrl)
+            return await response.json()
+        } catch (err) {
+            console.error(err)
+            return
+        }
+    }
+
+    filter.addEventListener('change', async (e) => {
         e.preventDefault()
+        let tags = []
+        let genres = ''
 
-        let games = []
+        // Check for filters on the form
         for (const input of filter) {
             const checked = input.checked
             if (checked) {
-                const { value } = input
-
-                games = data.filter(game => {
-                    let { platform } = game
-                    platform = platform.toLowerCase()
-                    return platform.includes(value)
-                })
+                const { value, name } = input
+                if (name === 'platform') {
+                    url += `&platform=${value}`
+                } else if (name === 'genre') {
+                    tags.push(value)
+                }
             }
         }
-        pagination(games)
+
+        if (tags) {
+            // Format tags for query string
+            genres = tags.join('.')
+            // Add genres to url
+            url += `&tag=${genres}`
+        }
+
+        if ((Array.isArray(tags) && tags.length > 0) || genres) {
+            // Fetch games data
+            const games = await fetchData(url)
+            pagination(games)
+        } else {
+            pagination(data)
+        }
+        url = `/filter?sort-by=${sortByOption}`
     })
 }
 export default filter
