@@ -1,3 +1,6 @@
+import { paginationElement, ulElem } from "../main.js"
+import { updateLoadingState } from "./utils.js"
+
 const filter = async (data, pagination, sortByOption) => {
     const filter = document.querySelector('form.filter')
     let url = `/filter?sort-by=${sortByOption}`
@@ -14,6 +17,9 @@ const filter = async (data, pagination, sortByOption) => {
 
     filter.addEventListener('change', async (e) => {
         e.preventDefault()
+        updateLoadingState(true)
+        paginationElement.innerHTML = ''
+        ulElem.innerHTML = ''
         let tags = []
         let genres = ''
 
@@ -45,6 +51,7 @@ const filter = async (data, pagination, sortByOption) => {
             pagination(data)
         }
         url = `/filter?sort-by=${sortByOption}`
+        updateLoadingState(false)
     })
 }
 export default filter
