@@ -4,7 +4,6 @@ import { updateLoadingState } from "./utils.js"
 const filter = async (data, pagination, sortByOption) => {
     const filter = document.querySelector('form.filter')
     const timeToSearchGame = 0 // Seconds
-    let url = `/filter?sort-by=${sortByOption}`
     let findFilterGamesTimeoutID = 0
 
 
@@ -15,7 +14,7 @@ const filter = async (data, pagination, sortByOption) => {
 
             if (data.status === 0) {
                 //TODO: Clear the filter
-
+                ulElem.innerHTML = `<p class="game-not-found">No games found with the given filters</p>`
                 //TODO: Show error message to the user on the client
                 throw new Error('No games found with the given filters')
             }
@@ -30,6 +29,7 @@ const filter = async (data, pagination, sortByOption) => {
 
     const findFilterGames = () => {
         return setTimeout(async () => {
+            let url = `/filter?sort-by=${sortByOption}`
             paginationElement.innerHTML = ''
             ulElem.innerHTML = ''
             let tags = []
