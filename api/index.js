@@ -42,6 +42,7 @@ app.get('/api/games', async (req, res) => {
     const data = await response.json()
     res.json(data)
 })
+
 app.get('/filter', async (req, res) => {
     const options = {
         method: 'GET',
@@ -53,21 +54,25 @@ app.get('/filter', async (req, res) => {
     const sortByOption = req.query['sort-by'] || 'release-date'
     const tag = req.query['tag'] || ''
     const platform = req.query['platform'] || ''
-    let query = `sort-by=${sortByOption}`
+    let query = ``
 
-    debug('tag', tag, 'is true?', !(tag === ''))
-
+    // Check if platform is valid
     if (platform) {
-        query += `&platform=${platform}`
-    } else if (!(tag === '')) {
-        debug('tag', tag)
+        query += `platform=${platform}`
+    }
+
+    // Check if tag is valid
+    if (!(tag === '')) {
         query += `&tag=${tag}`
     }
 
-    debug(`${API_URL}/filter?${query}`)
-
     try {
-        const response = await fetch(`${API_URL}/filter?${query}`, options)
+        let response
+        if (!query.includes('tag=')) {
+            response = await fetch(`${API_URL}/games?${query}`, options)
+        } else {
+            response = await fetch(`${API_URL}/filter?${query}`, options)
+        }
         const data = await response.json()
         res.json(data)
     } catch (err) {

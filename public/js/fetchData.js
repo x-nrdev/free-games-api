@@ -30,7 +30,6 @@ const fetchData = async (sortByOption = sortByOptions.RELEASE_DATE) => {
     const pagination = (games, page = 1) => {
         if (games === undefined || games.length === 0) throw new Error('Games array is empty')
         if (Number.isNaN(page)) throw new Error('Page is not a number')
-        console.log(games)
         const gamesPerPage = 12 // Number of games per page
         const delayMultiplier = 100
         const totalGames = games.length
