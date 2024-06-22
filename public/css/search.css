@@ -6,10 +6,17 @@ input[type=text] {
     border: none;
     outline: none;
     background: var(--secundaryColor);
-    border-bottom: var(--borderBottom);
-    border-radius: .2rem .2rem 0 0;
+    border-bottom: .2rem solid transparent;
+    border-radius: .2rem;
     color: var(--primaryColor);
     font-size: 1.2rem;
+    transition: .2s ease-in-out;
+    transition-property: border-bottom, border-radius;
+}
+
+input[type=text]:focus {
+    border-bottom: var(--borderBottom);
+    border-radius: .2rem .2rem 0 0;
 }
 
 input[type=text]::placeholder {
