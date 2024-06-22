@@ -13,9 +13,7 @@ const filter = async (data, pagination, sortByOption) => {
             const data = await response.json()
 
             if (data.status === 0) {
-                //TODO: Clear the filter
                 ulElem.innerHTML = `<p class="game-not-found">No games found with the given filters</p>`
-                //TODO: Show error message to the user on the client
                 throw new Error('No games found with the given filters')
             }
 
@@ -30,10 +28,10 @@ const filter = async (data, pagination, sortByOption) => {
     const findFilterGames = () => {
         return setTimeout(async () => {
             let url = `/filter?sort-by=${sortByOption}`
-            paginationElement.innerHTML = ''
-            ulElem.innerHTML = ''
-            let tags = []
             let genres = ''
+            let tags = []
+            ulElem.innerHTML = ''
+            paginationElement.innerHTML = ''
 
             // Check for filters on the form()
             for (const input of filter) {
@@ -48,21 +46,21 @@ const filter = async (data, pagination, sortByOption) => {
                 }
             }
 
-            if (tags) {
+
+            if (Array.isArray(tags) && tags.length > 0) {
                 // Format tags for query string
                 genres = tags.join('.')
                 // Add genres to url
                 url += `&tag=${genres}`
             }
 
-            if ((Array.isArray(tags) && tags.length > 0) || genres) {
+            if ((Array.isArray(tags) && tags.length > 0) || url.includes('platform')) {
                 // Fetch games data
                 const games = await fetchData(url)
                 pagination(games)
             } else {
                 pagination(data)
             }
-            url = `/filter?sort-by=${sortByOption}`
         }, timeToSearchGame * 1000)
     }
 

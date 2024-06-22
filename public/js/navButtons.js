@@ -18,7 +18,6 @@ const navButtons = () => {
             if (thisBtn.classList.contains('active')) return
 
             const sortBy = thisBtn.dataset.sortBy
-            console.log(sortBy)
             const activeNavButton = document.querySelector('.btn.active')
 
             updateActiveButton(activeNavButton, thisBtn)
