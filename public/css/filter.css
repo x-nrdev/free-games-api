@@ -30,6 +30,7 @@
     display: inline-block;
     padding: .6rem 1rem;
     border-bottom: .2em solid transparent;
+    border-radius: .2rem;
     min-width: 8rem;
     background-color: var(--secundaryColor);
     text-align: center;
@@ -43,4 +44,5 @@
 .filter input[type=checkbox]:checked+label {
     color: var(--primaryColor);
     border-bottom: var(--borderBottom);
+    border-radius: .2rem .2rem 0 0
 }
