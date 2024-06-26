@@ -3,6 +3,7 @@ import { updateLoadingState } from "./utils.js"
 
 const filter = async (data, pagination, sortByOption) => {
     const filter = document.querySelector('form.filter')
+    const resetBtn = document.querySelector('.reset-btn')
     const timeToSearchGame = 0 // Seconds
     let findFilterGamesTimeoutID = 0
 
@@ -73,5 +74,16 @@ const filter = async (data, pagination, sortByOption) => {
 
         updateLoadingState(false)
     })
+
+    resetBtn.addEventListener('click', () => {
+        for (const input of filter) {
+            const checked = input.checked
+            if (checked) {
+                pagination(data)
+                return
+            }
+        }
+    })
+
 }
 export default filter
