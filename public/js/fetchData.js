@@ -53,6 +53,9 @@ const fetchData = async (sortByOption = sortByOptions.RELEASE_DATE) => {
 
         // Insert pagination to the DOM
         const setPagination = () => {
+            // If just one page, don't show pagination
+            if (totalPages === 1) return
+
             // Insert pagination buttons
             let ctx = ''
 
