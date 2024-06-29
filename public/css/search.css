@@ -5,22 +5,27 @@ input[type=text] {
     appearance: none;
     border: none;
     outline: none;
-    background: var(--secundaryColor);
-    border-bottom: .2rem solid transparent;
+    background: transparent;
+    border: .15rem solid var(--secundaryColor);
     border-radius: .2rem;
-    color: var(--primaryColor);
+    color: #ccc;
     font-size: 1.2rem;
     transition: .2s ease-in-out;
-    transition-property: border-bottom, border-radius;
+    transition-property: border-bottom, border-radius, background-color;
 }
 
 input[type=text]:focus {
     border-bottom: var(--borderBottom);
+    background-color: var(--secundaryColor);
     border-radius: .2rem .2rem 0 0;
 }
 
-input[type=text]::placeholder {
+input[type=text]:focus::placeholder {
     color: var(--primaryColor);
+}
+
+input[type=text]::placeholder {
+    color: #ccc;
 }
 
 .search {
