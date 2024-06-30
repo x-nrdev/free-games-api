@@ -8,6 +8,9 @@ export const search = () => {
     const nav = document.querySelector('.nav')
     const searchToggle = document.querySelector('.search-toggle-btn')
     const searchLabel = document.querySelector('.search-label')
+    const filterResetBtn = document.querySelector('.reset-btn')
+    const filterDropdownCheckbox = document.querySelector('#filter-dropdown')
+
     let searchGameTimeoutID = 0
     // Search functionality
     const searchGame = (gameToFind = '') => {
@@ -61,6 +64,8 @@ export const search = () => {
         searchLabel.classList.add('active')
         searchToggle.classList.add('hidden')
         nav.classList.add('fadeOut')
+        filterResetBtn.click()
+        filterDropdownCheckbox.checked = false
         search.focus()
     })
 
