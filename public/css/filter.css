@@ -38,27 +38,24 @@
     font-size: .8rem;
     padding: .6rem;
     border: none;
-    border: .15rem solid var(--secundaryColor);
+    border: .15rem solid var(--primaryColor);
     border-radius: .2rem;
     width: 6rem;
     text-align: center;
     cursor: pointer;
-    transition: .2s ease-in-out;
-    transition-property: color, border-bottom, background-color;
+    transition: .3s ease-in-out;
+    transition-property: color, background-color;
 }
 
 .filter label:hover,
 .reset-btn:hover {
     color: var(--primaryColor);
-    border-bottom: var(--borderBottom);
-    border-radius: .2rem .2rem 0 0
 }
 
 .filter input[type=radio]:checked+label,
 .filter input[type=checkbox]:checked+label {
-    background-color: var(--secundaryColor);
-    color: var(--primaryColor);
-    border-bottom: var(--borderBottom);
+    background-color: var(--primaryColor);
+    color: black;
 }
 
 .reset-btn {
@@ -66,4 +63,13 @@
     background-color: transparent;
     text-transform: uppercase;
     font-weight: 500;
+}
+
+@media screen and (min-width: 940px) {
+
+    .radio-container,
+    .genre-container,
+    .reset-container {
+        padding-inline: unset;
+    }
 }

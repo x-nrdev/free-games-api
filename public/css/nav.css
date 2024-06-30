@@ -3,10 +3,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
     min-width: 100dvw;
     min-height: 100dvh;
-    position: fixed;
-    z-index: 10;
     border-radius: 100%;
     gap: 1rem;
 }
@@ -44,13 +45,13 @@
     transition: var(--menuTiming) ease-in-out scale;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 940px) {
     .nav {
         all: unset;
         display: flex;
         max-width: var(--maxWidthCap);
-        padding-block: 1.4rem;
         padding-inline: 2rem;
+        margin-block: .4rem;
         margin-inline: auto;
         gap: 4rem;
     }
@@ -60,7 +61,21 @@
         flex-grow: 1;
     }
 
+    .nav.fadeOut {
+        animation: fadeOut .3s ease-in-out forwards;
+    }
+
     .nav-background {
         display: none;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
     }
 }

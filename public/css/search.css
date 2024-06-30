@@ -1,33 +1,98 @@
-input[type=text] {
-    padding: .6rem 1rem;
-    margin-block-end: 2rem;
+.search-input {
+    box-sizing: border-box;
+    width: 2.6rem;
+    scale: 0 1;
+    height: 2rem;
+    padding: .6rem .8rem;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     appearance: none;
     border: none;
     outline: none;
     background: transparent;
-    border: .15rem solid var(--secundaryColor);
-    border-radius: .2rem;
-    color: #ccc;
-    font-size: 1.2rem;
-    transition: .2s ease-in-out;
-    transition-property: border-bottom, border-radius, background-color;
+    border: .15rem solid var(--primaryColor);
+    /* border-radius: .2rem; */
+    border-radius: 30rem;
+    color: var(--primaryColor);
+    font-size: 1rem;
 }
 
-input[type=text]:focus {
+.search-label {
+    position: absolute;
+    inset: 0;
+    display: none;
+    text-align: center;
+}
+
+.search-label.active {
+    display: grid;
+    place-content: center;
+}
+
+.search-label.active .search-input {
+    width: 100%;
+    animation: .3s ease-in-out forwards searchIn;
+    height: 2.6rem;
+}
+
+.search-input:focus {
     border-bottom: var(--borderBottom);
-    background-color: var(--secundaryColor);
-    border-radius: .2rem .2rem 0 0;
 }
 
-input[type=text]:focus::placeholder {
+.search-input:focus::placeholder {
     color: var(--primaryColor);
 }
 
-input[type=text]::placeholder {
+.search-input::placeholder {
     color: #ccc;
+    transition: .3s ease-in-out color;
 }
 
-.search {
-    text-align: center;
+.search-toggle {
+    display: none;
+}
+
+.search-toggle-btn {
+    justify-self: center;
+    max-width: 2.6rem;
+    cursor: pointer;
+    transition: .3s ease-in-out scale;
+    margin-inline: auto;
+}
+
+.search-toggle-btn:hover {
+    scale: 1.2;
+}
+
+@media screen and (min-width: 940px) {
+
+    .search-label {
+        max-width: var(--maxWidthCap);
+        margin-inline: auto;
+    }
+
+    .search-toggle-btn-img {
+        max-width: 2.6rem;
+    }
+
+    .search-label.active .search-input {
+        height: 3.2rem;
+        padding: 1rem 1.4rem;
+    }
+
+    .search-toggle-btn {
+        position: absolute;
+        right: 0;
+        width: var(--maxWidthCap);
+    }
+}
+
+@keyframes searchIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1 1;
+    }
 }

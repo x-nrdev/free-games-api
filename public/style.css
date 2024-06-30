@@ -2,7 +2,7 @@
     --primaryColor: hsl(0, 79%, 72%);
     --secundaryColor: hsl(0, 79%, 20%);
     --bgColor: #191528;
-    --borderBottom: .2em solid var(--primaryColor);
+    --borderBottom: .15rem solid var(--primaryColor);
     --menuSize: 60px;
     --menuTiming: .6s;
     --bgOpacity: rgba(0, 0, 0, 0.8);

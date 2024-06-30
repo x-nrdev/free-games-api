@@ -5,6 +5,9 @@ import gameCard from './gameCard.js'
 
 export const search = () => {
     const search = document.querySelector('#search')
+    const nav = document.querySelector('.nav')
+    const searchToggle = document.querySelector('.search-toggle-btn')
+    const searchLabel = document.querySelector('.search-label')
     let searchGameTimeoutID = 0
     // Search functionality
     const searchGame = (gameToFind = '') => {
@@ -52,6 +55,19 @@ export const search = () => {
         const searchInput = event.target.value.toLowerCase()
         clearTimeout(searchGameTimeoutID)
         searchGameTimeoutID = searchGame(searchInput)
+    })
+
+    searchToggle.addEventListener('click', () => {
+        searchLabel.classList.add('active')
+        searchToggle.classList.add('hidden')
+        nav.classList.add('fadeOut')
+        search.focus()
+    })
+
+    search.addEventListener('blur', () => {
+        searchLabel.classList.remove('active')
+        searchToggle.classList.remove('hidden')
+        nav.classList.remove('fadeOut')
     })
 
 }
