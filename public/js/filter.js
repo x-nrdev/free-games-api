@@ -4,6 +4,7 @@ import { updateLoadingState } from "./utils.js"
 const filter = async (data, pagination, sortByOption) => {
     const filter = document.querySelector('form.filter')
     const resetBtn = document.querySelector('.reset-btn')
+    const searchBtn = document.querySelector('#search')
     const timeToSearchGame = 0 // Seconds
     let findFilterGamesTimeoutID = 0
 
@@ -28,6 +29,7 @@ const filter = async (data, pagination, sortByOption) => {
 
     const findFilterGames = () => {
         return setTimeout(async () => {
+            searchBtn.value = ''
             let url = `/filter?sort-by=${sortByOption}`
             let genres = ''
             let tags = []
