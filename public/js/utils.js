@@ -1,6 +1,5 @@
 // Blur page when menu is opened
 export const updatePageBlur = () => {
-    if (window.innerWidth > 940) return
     const main = document.querySelector('main')
     const footer = document.querySelector('footer')
 
