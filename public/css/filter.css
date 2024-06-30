@@ -43,7 +43,7 @@
     transition: .3s ease-in-out;
     transition-property: scale, background-color, fill;
     max-width: 2rem;
-    border: 1px solid var(--primaryColor);
+    border: 2px solid var(--primaryColor);
     border-radius: 100%;
 }
 
