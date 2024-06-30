@@ -24,21 +24,22 @@
     display: inline-block;
     max-width: 16rem;
     padding-inline: 1rem;
-    border-radius: 0.4rem;
-    background-color: #333;
-    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+    border-radius: var(--bRadius);
+    background-color: var(--bgColor);
+    -webkit-box-shadow: var(--boxShadow);
+    -moz-box-shadow: var(--boxShadow);
+    box-shadow: var(--boxShadow);
     transition: 0.2s ease-in-out background-color;
 }
 
 .card img {
     object-fit: cover;
-    border-radius: 0.2rem;
     transition: 0.2s ease-in-out transform;
+    vertical-align: bottom;
 }
 
 .card a {
+    border-radius: calc(1rem - var(--bRadius));
     display: inline-block;
     overflow: hidden;
 }
@@ -81,5 +82,9 @@
 
     .card:has(img:hover) {
         background-color: #222;
+    }
+
+    .thumbnails {
+        gap: 2.375rem;
     }
 }

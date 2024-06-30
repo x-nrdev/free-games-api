@@ -29,7 +29,8 @@
 }
 
 .search-label.active .search-input {
-    width: 100%;
+    width: 80%;
+    margin-inline: auto;
     animation: .3s ease-in-out forwards searchIn;
     height: 2.6rem;
 }

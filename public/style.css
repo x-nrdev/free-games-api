@@ -1,13 +1,15 @@
 :root {
     --primaryColor: hsl(0, 79%, 72%);
     --secundaryColor: hsl(0, 79%, 20%);
-    --bgColor: #191528;
+    --bgColor: #333;
     --borderBottom: .15rem solid var(--primaryColor);
+    --boxShadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
     --menuSize: 60px;
     --menuTiming: .6s;
     --bgOpacity: rgba(0, 0, 0, 0.8);
     --backdropBlur: 4px;
     --maxWidthCap: 940px;
+    --bRadius: 0.4rem;
 }
 
 /* General */

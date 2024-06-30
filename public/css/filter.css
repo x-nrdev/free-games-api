@@ -1,7 +1,50 @@
 .filter {
+    display: none;
+    margin-inline: 1rem;
     accent-color: var(--primaryColor);
     text-transform: uppercase;
     font-weight: 500;
+    padding: 1rem;
+    background-color: var(--bgColor);
+    -webkit-box-shadow: var(--boxShadow);
+    -moz-box-shadow: var(--boxShadow);
+    box-shadow: var(--boxShadow);
+    border-radius: var(--bRadius);
+}
+
+.filter-dropdown-btn-input {
+    display: none;
+}
+
+.filter-dropdown-btn-input:checked~.filter {
+    display: block;
+    animation: .3s ease-in-out forwards filterFadeIn;
+}
+
+.filter-dropwdown-container {
+    margin-block: 1rem;
+    text-align: center;
+}
+
+.filter-dropdown-btn-input:checked~.filter-dropwdown-container svg {
+    fill: black;
+    scale: 1 -1;
+    background-color: var(--primaryColor);
+}
+
+.filter-dropdown-btn {
+    margin-block: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.filter-dropdown-btn svg {
+    fill: #ccc;
+    transition: .3s ease-in-out;
+    transition-property: scale, background-color, fill;
+    max-width: 2rem;
+    border: 1px solid var(--primaryColor);
+    border-radius: 100%;
 }
 
 .form-title {
@@ -66,10 +109,23 @@
 }
 
 @media screen and (min-width: 940px) {
+    .filter {
+        margin-inline: unset;
+    }
 
     .radio-container,
     .genre-container,
     .reset-container {
         padding-inline: unset;
+    }
+}
+
+@keyframes filterFadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
     }
 }
