@@ -47,6 +47,10 @@
     border-radius: 100%;
 }
 
+.filter-dropdown-btn:hover svg {
+    fill: var(--primaryColor);
+}
+
 .form-title {
     display: block;
     margin-block-end: 1rem;
