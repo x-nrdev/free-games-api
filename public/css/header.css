@@ -13,6 +13,11 @@
     backdrop-filter: blur(var(--backdropBlur));
 }
 
+.header .logo {
+    padding-inline-start: .6rem;
+    max-width: 2.6rem;
+}
+
 .header-container {
     all: inherit;
 }
@@ -22,6 +27,12 @@
         display: block;
         grid: none;
         height: unset;
+    }
+
+    .header .logo {
+        position: relative;
+        left: 0;
+        padding-inline-start: unset;
     }
 
     .header-container {
