@@ -47,10 +47,6 @@
     border-radius: 100%;
 }
 
-.filter-dropdown-btn:hover svg {
-    fill: var(--primaryColor);
-}
-
 .form-title {
     display: block;
     margin-block-end: 1rem;
@@ -70,7 +66,6 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding-inline: 2rem;
     margin-block-end: 2rem;
     gap: 1rem;
 }
@@ -94,10 +89,7 @@
     transition-property: color, background-color;
 }
 
-.filter label:hover,
-.reset-btn:hover {
-    color: var(--primaryColor);
-}
+
 
 .filter input[type=radio]:checked+label,
 .filter input[type=checkbox]:checked+label {
@@ -121,6 +113,15 @@
     .genre-container,
     .reset-container {
         padding-inline: unset;
+    }
+
+    .filter label:hover,
+    .reset-btn:hover {
+        color: var(--primaryColor);
+    }
+
+    .filter-dropdown-btn:hover svg {
+        fill: var(--primaryColor);
     }
 }
 
