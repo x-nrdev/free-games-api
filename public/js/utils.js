@@ -29,3 +29,11 @@ export const updateLoadingState = isLoading => {
     const loading = document.querySelector('.loading')
     isLoading ? loading.classList.add('active') : loading.classList.remove('active')
 }
+
+// Reset Filter
+export const resetFilter = () => {
+    const filterResetBtn = document.querySelector('.reset-btn')
+    const filterDropdownCheckbox = document.querySelector('#filter-dropdown')
+    filterResetBtn.click()
+    filterDropdownCheckbox.checked = false
+}

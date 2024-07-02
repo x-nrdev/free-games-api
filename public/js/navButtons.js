@@ -1,5 +1,5 @@
 import fetchData from './fetchData.js'
-import { updatePageBlur, updateActiveButton } from './utils.js'
+import { updatePageBlur, updateActiveButton, resetFilter } from './utils.js'
 
 // Update games category
 const navButtons = () => {
@@ -24,6 +24,7 @@ const navButtons = () => {
             search.value = ''
             fetchData(sortBy)
             updatePageBlur()
+            resetFilter()
             globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" })
         })
     })
