@@ -44,7 +44,7 @@
 }
 
 .search-input::placeholder {
-    color: #ccc;
+    color: var(--textColor);
     transition: .3s ease-in-out color;
 }
 

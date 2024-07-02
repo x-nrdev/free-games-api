@@ -17,7 +17,7 @@
     max-width: 80%;
     padding: 1rem 1.4rem;
     border: 1px solid var(--primaryColor);
-    color: #ccc;
+    color: var(--textColor);
     background-color: transparent;
     cursor: pointer;
     font-weight: bold;

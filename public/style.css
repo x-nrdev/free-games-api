@@ -2,6 +2,7 @@
     --primaryColor: hsl(0, 79%, 72%);
     --secundaryColor: hsl(0, 79%, 20%);
     --bgColor: #333;
+    --textColor: #ccc;
     --borderBottom: .15rem solid var(--primaryColor);
     --boxShadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
     --menuSize: 60px;
@@ -28,8 +29,17 @@ html {
 body {
     margin: 0;
     margin-inline: auto;
-    color: #ccc;
+    color: var(--textColor);
     background-color: #222;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
 }
 
 h1 {
@@ -38,6 +48,10 @@ h1 {
 
 h3 {
     margin-block: 1.2rem;
+}
+
+p {
+    text-wrap: pretty;
 }
 
 main {

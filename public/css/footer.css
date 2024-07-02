@@ -1,7 +1,17 @@
 .footer {
-    padding-block: 2rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding: 2rem;
     background-color: var(--bgOpacity);
     text-align: center;
+    text-wrap: balance;
+}
+
+.footer a {
+    color: var(--primaryColor);
+    text-decoration: none;
+    font-weight: 500;
 }
 
 .footer p {

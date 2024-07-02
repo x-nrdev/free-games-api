@@ -39,7 +39,7 @@
 }
 
 .filter-dropdown-btn svg {
-    fill: #ccc;
+    fill: var(--textColor);
     transition: .3s ease-in-out;
     transition-property: scale, background-color, fill;
     max-width: 2rem;
@@ -98,7 +98,7 @@
 }
 
 .reset-btn {
-    color: #ccc;
+    color: var(--textColor);
     background-color: transparent;
     text-transform: uppercase;
     font-weight: 500;
