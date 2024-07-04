@@ -21,9 +21,12 @@
 }
 
 .card {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     max-width: 16rem;
     padding-inline: 1rem;
+    padding-block-end: 1rem;
     border-radius: var(--bRadius);
     background-color: var(--bgColor);
     -webkit-box-shadow: var(--boxShadow);
@@ -32,7 +35,21 @@
     transition: 0.2s ease-in-out background-color;
 }
 
-.card img {
+.card-description {
+    flex-grow: 1;
+}
+
+.card-genre {
+    padding: .2rem .6rem;
+    background-color: var(--primaryColor);
+    color: #000;
+    border-radius: var(--bRadius);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.card-img {
     object-fit: cover;
     transition: 0.2s ease-in-out transform;
     vertical-align: bottom;
