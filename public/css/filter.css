@@ -99,6 +99,9 @@
 
 .reset-btn {
     color: var(--textColor);
+    border: none;
+    width: unset;
+    text-decoration: underline 2px;
     background-color: transparent;
     text-transform: uppercase;
     font-weight: 500;
