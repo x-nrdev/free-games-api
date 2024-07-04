@@ -18,6 +18,10 @@
     max-width: 2.6rem;
 }
 
+.header .logo img {
+    display: block;
+}
+
 .header-container {
     all: inherit;
 }
@@ -30,7 +34,7 @@
     }
 
     .header .logo {
-        position: relative;
+        position: absolute;
         left: 0;
         padding-inline-start: unset;
     }
