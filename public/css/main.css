@@ -124,6 +124,10 @@
     .thumbnails {
         gap: 2.375rem;
     }
+
+    .scroll-up-btn {
+        display: none;
+    }
 }
 
 @keyframes fadeIn {
