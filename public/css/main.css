@@ -41,7 +41,7 @@
 .card-genre {
     padding: .2rem .6rem;
     border-radius: 50rem;
-    border: 1px solid var(--primaryColor);
+    border: 2px solid var(--primaryColor);
     font-size: 0.6rem;
     font-weight: 500;
     text-transform: uppercase;
