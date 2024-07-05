@@ -27,8 +27,9 @@
 }
 
 .filter-dropdown-btn-input:checked~.filter-dropwdown-container svg {
+    color: black;
     fill: black;
-    scale: 1 -1;
+    scale: 1 1;
     background-color: var(--primaryColor);
 }
 
@@ -39,12 +40,14 @@
 }
 
 .filter-dropdown-btn svg {
-    fill: var(--textColor);
-    transition: .3s ease-in-out;
-    transition-property: scale, background-color, fill;
-    max-width: 2rem;
+    padding: .4rem;
+    max-width: 1.4rem;
     border: 2px solid var(--primaryColor);
     border-radius: 100%;
+    transition: .3s ease-in-out;
+    transition-property: scale, background-color, fill, color;
+    fill: var(--textColor);
+    color: var(--textColor);
 }
 
 .form-title {
@@ -125,6 +128,7 @@
 
     .filter-dropdown-btn:hover svg {
         fill: var(--primaryColor);
+        color: var(--primaryColor);
     }
 }
 
