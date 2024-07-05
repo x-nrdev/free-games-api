@@ -45,6 +45,7 @@
     justify-self: flex-end;
     width: var(--menuSize);
     padding: 0;
+    margin-inline-end: 1rem;
     z-index: 20;
     border: none;
     background-color: transparent;

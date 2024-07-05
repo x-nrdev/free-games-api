@@ -14,7 +14,7 @@
 }
 
 .header .logo {
-    padding-inline-start: .6rem;
+    margin-inline-start: 1rem;
     max-width: 2.6rem;
 }
 
@@ -35,7 +35,7 @@
 
     .header .logo {
         position: absolute;
-        left: 0;
+        left: 1rem;
         padding-inline-start: unset;
     }
 
