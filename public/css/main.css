@@ -73,11 +73,14 @@
     padding: 0.4rem 0.6rem;
     border: 1px solid var(--primaryColor);
     background-color: transparent;
+    transition: .3s ease-in-out;
+    transition-property: background-color, color;
 }
 
 .fn-pagination.active {
     cursor: pointer;
     color: black;
+    font-weight: 500;
     background-color: var(--primaryColor);
 }
 
@@ -107,6 +110,7 @@
     }
 
     .pagination button:hover {
+        color: black;
         cursor: pointer;
         background-color: var(--primaryColor);
     }
