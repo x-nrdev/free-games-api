@@ -1,7 +1,7 @@
 # Welcome to the Free Games API Website repository!
 This little project is a comprehensive web application that provides users with a collection of free games. It incorporates several modern web development techniques and tools to ensure a seamless and efficient user experience.
 <br><br><br>
-![fga_thumbnail](https://github.com/nrdevpy/free-games-api/assets/65718169/b5c9e271-0643-42d4-9c62-75f637d4ea0b)
+<img src="./public/assets/website-preview.gif" alt="Website preview">
 <br><br><br>
 
 ## Features
