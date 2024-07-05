@@ -23,7 +23,7 @@ const navButtons = () => {
             updateActiveButton(activeNavButton, thisBtn)
             search.value = ''
             fetchData(sortBy)
-            updatePageBlur()
+            if (window.innerWidth < 940) updatePageBlur()
             resetFilter()
             globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" })
         })
