@@ -3,12 +3,9 @@ This little project is a comprehensive web application that provides users with 
 <br><br><br>
 ![fga_thumbnail](https://github.com/nrdevpy/free-games-api/assets/65718169/b5c9e271-0643-42d4-9c62-75f637d4ea0b)
 <br><br><br>
-## Tecnologías
-- HTML
-- CSS
-- JavaScript
-- Express
+
 ## Features
+
 - Fetch API Async/Await: Uses the Fetch API with async/await for handling asynchronous operations, ensuring smooth and efficient data fetching.
 - Responsive Design: Fully responsive design to provide an optimal viewing experience across a wide range of devices (desktops, tablets, and mobile phones).
 - Loading State: Includes a loading state to enhance user experience during data fetching operations.
@@ -16,6 +13,8 @@ This little project is a comprehensive web application that provides users with 
 - Pagination: Implements pagination to manage and display large sets of game data effectively.
 - Serverless Functions: Utilizes serverless functions to handle backend logic, reducing server maintenance overhead.
 - Express: Employs the Express framework for server-side logic and API routes.
+- Filters: Implements filters to refine search results based on specific criteria.
+- Sorting: Allows users to sort search results based on various criteria, such as release date, popularity, or alphabetical order.
 
 ## Project Development Journey
 Inspiration and Learning
@@ -40,3 +39,15 @@ Implementing a loading state to enhance user experience during data fetch operat
 
 ### Moving Forward
 While I could continue to add more features to this project, I have decided to shift my focus towards learning React. This project has equipped me with a solid foundation in fullstack development, and I am excited to take my skills to the next level with React.
+
+### Filters
+Adding filters to refine search results based on specific criteria was a challenging yet rewarding experience. I developed a deeper understanding of how to manipulate and display data based on user-selected criteria.
+
+### Sorting
+Implementing sorting functionality provided users with the ability to organize search results based on various criteria such as release date, relevance, popularity, or alphabetical order. This feature was particularly interesting to develop as it involved creating dynamic and user-friendly interfaces that responded to user selections.
+
+## Technologies
+<img align="left" src="./public/assets/logos/html.png" width="48">
+<img align="left" src="./public/assets/logos/css.png" width="48">
+<img align="left" src="./public/assets/logos/js.png" width="48">
+<img align="left" src="./public/assets/logos/express.png" width="48">
