@@ -2,308 +2,93 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Dive into an extensive collection of free games spanning various genres, from action and adventure to puzzles and strategy. Enjoy hours of entertainment with no downloads or sign-ups required. Discover your next favorite game today at Free Games Website – where fun is always free!">
-  <meta name="google-site-verification" content="verification_token"><!-- Google Search Console -->
-  <meta name="yandex-verification" content="verification_token"><!-- Yandex Webmasters -->
-  <meta name="msvalidate.01" content="verification_token"><!-- Bing Webmaster Center -->
-  <meta name="alexaVerifyID" content="verification_token"><!-- Alexa Console -->
-  <meta name="p:domain_verify" content="code_from_pinterest"><!-- Pinterest Console-->
-  <meta name="norton-safeweb-site-verification" content="norton_code"><!-- Norton Safe Web -->
-  <meta name="geo.placename" content="La Línea de la Concepción" />
-  <link rel="canonical" href="https://free-games-api.vercel.app/" />
-  <!-- Open Graph -->
-  <meta property="og:url" content="https://free-games-api.vercel.app/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Free Games Website">
-  <meta property="og:image" content="https://free-games-api.vercel.app/assets/website-icon.png">
-  <meta property="og:image:alt" content="Console game controller">
-  <meta property="og:description"
-    content="Dive into an extensive collection of free games spanning various genres, from action and adventure to puzzles and strategy. Enjoy hours of entertainment with no downloads or sign-ups required. Discover your next favorite game today at Free Games Website – where fun is always free!">
-  <meta property="og:site_name" content="Free Games Website">
-  <meta property="og:locale" content="en_US">
-  <meta property="article:author" content="">
-  <!-- Twitter -->
-  <meta property="twitter:card"
-    content="Enjoy hours of entertainment with no downloads or sign-ups required. Discover your next favorite game today at Free Games Website – where fun is always free!">
-  <meta property="twitter:site" content="@N3LSONROJ4S">
-  <meta property="twitter:creator" content="@N3LSONROJ4S">
-  <meta property="twitter:url" content="https://free-games-api.vercel.app/">
-  <meta property="twitter:title" content="Free Games Website">
-  <meta property="twitter:description"
-    content="Dive into an extensive collection of free games spanning various genres, from action and adventure to puzzles and strategy.">
-  <meta property="twitter:image" content="https://free-games-api.vercel.app/assets/website-icon.png">
-  <meta property="twitter:image:alt" content="Console game controller">
-  <title>Free Games Website</title>
-  <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="./css/modules.css" />
-  <script defer type="module" src="main.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Dive into an extensive collection of free games spanning various genres, from action and adventure to puzzles and strategy. Enjoy hours of entertainment with no downloads or sign-ups required. Discover your next favorite game today at Free Games Website – where fun is always free!">
+    <meta name="google-site-verification" content="verification_token"><!-- Google Search Console -->
+    <meta name="yandex-verification" content="verification_token"><!-- Yandex Webmasters -->
+    <meta name="msvalidate.01" content="verification_token"><!-- Bing Webmaster Center -->
+    <meta name="alexaVerifyID" content="verification_token"><!-- Alexa Console -->
+    <meta name="p:domain_verify" content="code_from_pinterest"><!-- Pinterest Console-->
+    <meta name="norton-safeweb-site-verification" content="norton_code"><!-- Norton Safe Web -->
+    <meta name="geo.placename" content="La Línea de la Concepción" />
+    <link rel="canonical" href="https://free-games-api.vercel.app/" />
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://free-games-api.vercel.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Games Website">
+    <meta property="og:image" content="https://free-games-api.vercel.app/assets/website-icon.png">
+    <meta property="og:image:alt" content="Console game controller">
+    <meta property="og:description"
+        content="Dive into an extensive collection of free games spanning various genres, from action and adventure to puzzles and strategy. Enjoy hours of entertainment with no downloads or sign-ups required. Discover your next favorite game today at Free Games Website – where fun is always free!">
+    <meta property="og:site_name" content="Free Games Website">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="">
+    <!-- Twitter -->
+    <meta property="twitter:card"
+        content="Enjoy hours of entertainment with no downloads or sign-ups required. Discover your next favorite game today at Free Games Website – where fun is always free!">
+    <meta property="twitter:site" content="@N3LSONROJ4S">
+    <meta property="twitter:creator" content="@N3LSONROJ4S">
+    <meta property="twitter:url" content="https://free-games-api.vercel.app/">
+    <meta property="twitter:title" content="Free Games Website">
+    <meta property="twitter:description"
+        content="Dive into an extensive collection of free games spanning various genres, from action and adventure to puzzles and strategy.">
+    <meta property="twitter:image" content="https://free-games-api.vercel.app/assets/website-icon.png">
+    <meta property="twitter:image:alt" content="Console game controller">
+    <title>Free Games Website</title>
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/modules.css" />
 </head>
 
 <body>
-  <header class="header">
-    <div class="header-container">
-      <div class="logo">
-        <img src="./assets/website-icon.png" alt="console game controller image" />
-      </div>
-      <button class="menu"
-        onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
-        aria-label="Main Menu">
-        <svg viewBox="0 0 100 100">
-          <path class="line line1"
-            d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
-          <path class="line line2" d="M 20,50 H 80" />
-          <path class="line line3"
-            d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
-        </svg>
-      </button>
-      <nav class="nav">
-        <button class="btn active" data-sortBy="release-date">
-          release date
-        </button>
-        <button class="btn" data-sort-by="popularity">
-          popularity
-        </button>
-        <button class="btn" data-sort-by="alphabetical">
-          alphabetical
-        </button>
-        <button class="btn" data-sort-by="relevance">
-          relevance
-        </button>
-      </nav>
-      <div class="search-toggle-btn">
-        <img src="./assets/search-btn.svg" alt="search-btn" class="search-toggle-btn-img" />
-      </div>
-      <label for="search" class="search-label">
-        <input type="text" name="search" id="search" class="search-input" placeholder="Find game..." />
-      </label>
-      <div class="nav-background"></div>
-    </div>
-  </header>
-  <div class="wrapper">
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Free Games Website</h1>
+            <p>Welcome to the largest worldwide hub for free-to-play games!</p>
+            <a target="_blank" href="./games.html">Get Started</a>
+        </div>
+        <video src="assets/videos/hero.mp4" autoplay muted loop></video>
+    </header>
+
     <main>
-      <h1>Free Games</h1>
-      <input type="checkbox" name="filter-dropdown" id="filter-dropdown" class="filter-dropdown-btn-input" />
-      <div class="filter-dropwdown-container">
-        <label for="filter-dropdown" class="filter-dropdown-btn">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-            <g id="SVGRepo_iconCarrier">
-              <path
-                d="M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z"
-                stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
-            </g>
-          </svg>
-        </label>
-      </div>
-      <form class="filter">
-        <span class="form-title">Platform</span>
-        <div class="radio-container">
-          <input type="radio" name="platform" id="pc" value="pc" />
-          <label for="pc">pc</label>
-          <input type="radio" name="platform" id="browser" value="browser" />
-          <label for="browser">browser</label>
+        <h2>Our Feature</h2>
+        <p>Find action, strategy, MMORPGs, or casual games, we've got something for everyone.</p>
+        <div class="feature-cards">
+            <div class="card">
+                <div class="icon">🎮</div>
+                <h3>Thousand Games</h3>
+                <p>Lot of games to check, with search input, filters, sorting.</p>
+            </div>
+            <div class="card">
+                <div class="icon">⚔️</div>
+                <h3>Thousand Games</h3>
+                <p>Lot of games to check, with search input, filters, sorting.</p>
+            </div>
+            <div class="card">
+                <div class="icon">⏳</div>
+                <h3>Thousand Games</h3>
+                <p>Lot of games to check, with search input, filters, sorting.</p>
+            </div>
         </div>
-        <span class="form-title">Genre</span>
-        <div class="genre-container">
-          <input type="checkbox" name="genre" value="mmorpg" id="mmorpg">
-          <label for="mmorpg">mmorpg</label>
-          <input type="checkbox" name="genre" value="shooter" id="shooter">
-          <label for="shooter">shooter</label>
-          <input type="checkbox" name="genre" value="pvp" id="pvp">
-          <label for="pvp">pvp</label>
-          <input type="checkbox" name="genre" value="battle-royale" id="battle-royale">
-          <label for="battle-royale">battle royale</label>
-          <input type="checkbox" name="genre" value="zombie" id="zombie">
-          <label for="zombie">zombie</label>
-          <input type="checkbox" name="genre" value="card" id="card">
-          <label for="card">card</label>
-          <input type="checkbox" name="genre" value="survival" id="survival">
-          <label for="survival">survival</label>
-          <input type="checkbox" name="genre" value="moba" id="moba">
-          <label for="moba">moba</label>
-          <input type="checkbox" name="genre" value="racing" id="racing">
-          <label for="racing">racing</label>
-          <input type="checkbox" name="genre" value="sports" id="sports">
-          <label for="sports">sports</label>
-          <input type="checkbox" name="genre" value="open-world" id="open-world">
-          <label for="open-world">open-world</label>
-          <input type="checkbox" name="genre" value="pixel" id="pixel">
-          <label for="pixel">pixel</label>
-          <input type="checkbox" name="genre" value="voxel" id="voxel">
-          <label for="voxel">voxel</label>
-          <input type="checkbox" name="genre" value="anime" id="anime">
-          <label for="anime">anime</label>
-          <input type="checkbox" name="genre" value="fantasy" id="fantasy">
-          <label for="fantasy">fantasy</label>
-          <input type="checkbox" name="genre" value="sci-fi" id="sci-fi">
-          <label for="sci-fi">sci-fi</label>
-          <input type="checkbox" name="genre" value="fighting" id="fighting">
-          <label for="fighting">fighting</label>
-          <input type="checkbox" name="genre" value="horror" id="horror">
-          <label for="horror">horror</label>
+        <div>
+            <a target="_blank" href="./games.html">Get Started</a>
         </div>
-        <div class="reset-container">
-          <button type="reset" class="reset-btn">Reset</button>
-        </div>
-      </form>
-      <div class="loading"></div>
-      <section>
-        <ul class="thumbnails">
-          <li class='thumbnail'>
-            <div class="card">
-              <a href='#' target='_blank'>
-                <img class="card-img" width='256' height='144'>
-              </a>
-              <h3></h3>
-              <p class="card-description"></p>
-              <span class="card-genre"></span>
-            </div>
-          </li>
-          <li class='thumbnail'>
-            <div class="card">
-              <a href='#' target='_blank'>
-                <img class="card-img" width='256' height='144'>
-              </a>
-              <h3></h3>
-              <p class="card-description"></p>
-              <span class="card-genre"></span>
-            </div>
-          </li>
-          <li class='thumbnail'>
-            <div class="card">
-              <a href='#' target='_blank'>
-                <img class="card-img" width='256' height='144'>
-              </a>
-              <h3></h3>
-              <p class="card-description"></p>
-              <span class="card-genre"></span>
-            </div>
-          </li>
-          <li class='thumbnail'>
-            <div class="card">
-              <a href='#' target='_blank'>
-                <img class="card-img" width='256' height='144'>
-              </a>
-              <h3></h3>
-              <p class="card-description"></p>
-              <span class="card-genre"></span>
-            </div>
-          </li>
-          <li class='thumbnail'>
-            <div class="card">
-              <a href='#' target='_blank'>
-                <img class="card-img" width='256' height='144'>
-              </a>
-              <h3></h3>
-              <p class="card-description"></p>
-              <span class="card-genre"></span>
-            </div>
-          </li>
-          <li class='thumbnail'>
-            <div class="card">
-              <a href='#' target='_blank'>
-                <img class="card-img" width='256' height='144'>
-              </a>
-              <h3></h3>
-              <p class="card-description"></p>
-              <span class="card-genre"></span>
-            </div>
-          </li>
-          <li class='thumbnail'>
-            <div class="card">
-              <a href='#' target='_blank'>
-                <img class="card-img" width='256' height='144'>
-              </a>
-              <h3></h3>
-              <p class="card-description"></p>
-              <span class="card-genre"></span>
-            </div>
-          </li>
-          <li class='thumbnail'>
-            <div class="card">
-              <a href='#' target='_blank'>
-                <img class="card-img" width='256' height='144'>
-              </a>
-              <h3></h3>
-              <p class="card-description"></p>
-              <span class="card-genre"></span>
-            </div>
-          </li>
-          <li class='thumbnail'>
-            <div class="card">
-              <a href='#' target='_blank'>
-                <img class="card-img" width='256' height='144'>
-              </a>
-              <h3></h3>
-              <p class="card-description"></p>
-              <span class="card-genre"></span>
-            </div>
-          </li>
-          <li class='thumbnail'>
-            <div class="card">
-              <a href='#' target='_blank'>
-                <img class="card-img" width='256' height='144'>
-              </a>
-              <h3></h3>
-              <p class="card-description"></p>
-              <span class="card-genre"></span>
-            </div>
-          </li>
-          <li class='thumbnail'>
-            <div class="card">
-              <a href='#' target='_blank'>
-                <img class="card-img" width='256' height='144'>
-              </a>
-              <h3></h3>
-              <p class="card-description"></p>
-              <span class="card-genre"></span>
-            </div>
-          </li>
-          <li class='thumbnail'>
-            <div class="card">
-              <a href='#' target='_blank'>
-                <img class="card-img" width='256' height='144'>
-              </a>
-              <h3></h3>
-              <p class="card-description"></p>
-              <span class="card-genre"></span>
-            </div>
-          </li>
-        </ul>
-      </section>
-      <ul class="pagination"></ul>
-      <div class="scroll-up-btn">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
-          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-          <g id="SVGRepo_iconCarrier">
-            <rect x="0" fill="none" width="24" height="24"></rect>
-            <g>
-              <path d="M20 9l-8 8-8-8 1.414-1.414L12 14.172l6.586-6.586"></path>
-            </g>
-          </g>
-        </svg>
-      </div>
     </main>
-  </div>
-  <footer class="footer">
-    <p>The development of this page has been made possible thanks to <a href="https://www.freetogame.com/"
-        target="_blank">Free-To-Play Games Database API</a></p>
-    <p>Made with ❤️ by <a href="https://nelsonrojas.dev" target="_blank">Nelson Rojas</a></p>
-  </footer>
-  <script>
-    window.va =
-      window.va ||
-      function () {
-        (window.vaq = window.vaq || []).push(arguments)
-      };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
+    <footer class="footer">
+        <p>The development of this page has been made possible thanks to <a href="https://www.freetogame.com/"
+                target="_blank">Free-To-Play Games Database API</a></p>
+        <p>Made with ❤️ by <a href="https://nelsonrojas.dev" target="_blank">Nelson Rojas</a></p>
+    </footer>
+    <script>
+        window.va =
+            window.va ||
+            function () {
+                (window.vaq = window.vaq || []).push(arguments)
+            };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 
 </html>
