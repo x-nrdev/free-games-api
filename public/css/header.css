@@ -30,6 +30,11 @@
 
 .hero h1 {
     margin: 0;
+    font-size: 4rem;
+}
+
+.hero p {
+    font-size: 2rem;
 }
 
 .hero-content {
@@ -39,6 +44,8 @@
     place-content: center;
     gap: 1.2rem;
     min-height: 95dvh;
+    padding-inline: 2rem;
+    text-align: center;
 }
 
 .hero-content::before {
@@ -66,40 +73,6 @@
     height: 95dvh;
     z-index: -100;
     filter: blur(4px);
-}
-
-.main-hp {
-    all: unset;
-    display: grid;
-    place-content: center;
-    text-align: center;
-    min-height: 100dvh;
-}
-
-.feature-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4rem;
-    padding-block: 4rem;
-}
-
-.main-hp .btn-container {
-    margin-block: 4rem;
-}
-
-.feature-cards .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-inline: auto;
-    max-width: 16rem;
-    padding: 1rem;
-    border-radius: var(--bRadius);
-    background-color: var(--bgColor);
-    -webkit-box-shadow: var(--boxShadow);
-    -moz-box-shadow: var(--boxShadow);
-    box-shadow: var(--boxShadow);
-    transition: 0.2s ease-in-out background-color;
 }
 
 @media screen and (min-width: 940px) {

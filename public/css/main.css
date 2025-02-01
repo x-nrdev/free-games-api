@@ -104,6 +104,52 @@
     display: block;
 }
 
+.main-hp {
+    all: unset;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    min-height: 100dvh;
+}
+
+.feature-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    padding-block: 4rem;
+}
+
+.main-hp .btn-container {
+    margin-block: 4rem;
+}
+
+.main-hp h2 {
+    font-size: 3.6rem;
+}
+
+.main-hp p {
+    font-size: 1.2rem;
+}
+
+.feature-cards .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline: auto;
+    max-width: 16rem;
+    padding: 1rem;
+    border-radius: var(--bRadius);
+    background-color: var(--bgColor);
+    -webkit-box-shadow: var(--boxShadow);
+    -moz-box-shadow: var(--boxShadow);
+    box-shadow: var(--boxShadow);
+    transition: 0.2s ease-in-out background-color;
+}
+
+.main-hp .icon img {
+    max-width: 8rem;
+}
+
 @media screen and (min-width: 940px) {
     main {
         margin-block-start: 8rem;
@@ -129,6 +175,15 @@
 
     .scroll-up-btn {
         display: none;
+    }
+
+    .main-hp .icon img:hover,
+    .main-hp .icon img {
+        all: unset;
+    }
+
+    .main-hp .card:has(img:hover) {
+        background-color: var(--bgColor);
     }
 }
 
