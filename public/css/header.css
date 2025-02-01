@@ -26,6 +26,74 @@
     all: inherit;
 }
 
+.hero {}
+
+.hero h1 {
+    margin: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 100;
+    display: grid;
+    place-content: center;
+    min-height: 95dvh;
+}
+
+.hero-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgb(0, 0, 0, 0.75);
+    z-index: -10;
+}
+
+.hero-content .btn {
+    justify-self: center;
+}
+
+.hero video {
+    position: absolute;
+    box-shadow: 0px 0 10px 4px black;
+    top: 0;
+    left: 0;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    min-width: 100%;
+    height: 95dvh;
+    z-index: -100;
+    filter: blur(4px);
+}
+
+.main-hp {
+    all: unset;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    min-height: 100dvh;
+}
+
+.feature-cards {
+    display: flex;
+    column-gap: 4rem;
+    padding-block: 4rem;
+}
+
+.feature-cards .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 16rem;
+    padding: 1rem;
+    border-radius: var(--bRadius);
+    background-color: var(--bgColor);
+    -webkit-box-shadow: var(--boxShadow);
+    -moz-box-shadow: var(--boxShadow);
+    box-shadow: var(--boxShadow);
+    transition: 0.2s ease-in-out background-color;
+}
+
 @media screen and (min-width: 940px) {
     .header {
         display: block;
