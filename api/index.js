@@ -12,7 +12,7 @@ const API_KEY = process.env.API_KEY
 
 // Rate limiting configuration
 const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
+    windowMs: 5 * 60 * 1000, // 5 minutes
     max: 100, // Limit each IP to 100 requests per windowMs
     message: 'Too many requests from this IP, please try again after 15 minutes',
 })
@@ -93,5 +93,5 @@ app.get('/filter', async (req, res) => {
 })
 
 app.use(express.static('public'))
-// app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 module.exports = app
