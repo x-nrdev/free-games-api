@@ -124,11 +124,12 @@
 }
 
 .main-hp h2 {
-    font-size: 3.6rem;
+    font-size: clamp(2rem, 5vw, 3.2rem);
 }
 
-.main-hp p {
-    font-size: 1.2rem;
+.main-hp-sub-title {
+    font-size: clamp(1rem, 5vw, 1.6rem);
+    margin: 0;
 }
 
 .feature-cards .card {
@@ -147,7 +148,7 @@
 }
 
 .main-hp .icon img {
-    max-width: 8rem;
+    width: 4rem;
 }
 
 @media screen and (min-width: 940px) {
@@ -177,9 +178,8 @@
         display: none;
     }
 
-    .main-hp .icon img:hover,
-    .main-hp .icon img {
-        all: unset;
+    .main-hp .card img:hover {
+        transform: unset;
     }
 
     .main-hp .card:has(img:hover) {

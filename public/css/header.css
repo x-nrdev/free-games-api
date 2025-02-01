@@ -26,11 +26,9 @@
     all: inherit;
 }
 
-.hero {}
-
 .hero h1 {
     margin: 0;
-    font-size: 4rem;
+    font-size: clamp(2.6rem, 5vw, 4rem);
 }
 
 .hero p {
