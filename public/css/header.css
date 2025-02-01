@@ -41,7 +41,7 @@
     display: grid;
     place-content: center;
     gap: 1.2rem;
-    min-height: 95dvh;
+    min-height: 95vh;
     padding-inline: 2rem;
     text-align: center;
 }
