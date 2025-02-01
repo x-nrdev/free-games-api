@@ -151,6 +151,28 @@
     width: 4rem;
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-hp {
+    opacity: 0;
+    /* Start hidden */
+    view-timeline-name: --card-timeline;
+    animation-timeline: --card-timeline;
+    animation-name: fadeInUp;
+    animation-range: entry 40% cover 50%;
+    animation-fill-mode: both;
+}
+
 @media screen and (min-width: 940px) {
     main {
         margin-block-start: 8rem;
