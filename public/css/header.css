@@ -37,6 +37,7 @@
     z-index: 100;
     display: grid;
     place-content: center;
+    gap: 1.2rem;
     min-height: 95dvh;
 }
 
@@ -50,6 +51,7 @@
 
 .hero-content .btn {
     justify-self: center;
+    min-width: unset;
 }
 
 .hero video {
@@ -76,14 +78,20 @@
 
 .feature-cards {
     display: flex;
-    column-gap: 4rem;
+    flex-wrap: wrap;
+    gap: 4rem;
     padding-block: 4rem;
+}
+
+.main-hp .btn-container {
+    margin-block: 4rem;
 }
 
 .feature-cards .card {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-inline: auto;
     max-width: 16rem;
     padding: 1rem;
     border-radius: var(--bRadius);
