@@ -14,7 +14,7 @@
     --bgOpacity: rgba(0, 0, 0, 0.8);
     --backdropBlur: 4px;
     --maxWidthCap: 940px;
-    --bRadius: 0.4rem;
+    --bRadius: 10px;
 }
 
 /* General */
